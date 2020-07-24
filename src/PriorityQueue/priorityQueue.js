@@ -2,7 +2,7 @@
 export default class PriorityQueue {
 
   constructor() {
-    
+
     this.items = [];
 
     // 内部类
