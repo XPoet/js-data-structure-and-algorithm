@@ -1,9 +1,4 @@
----
-title: JavaScript 数据结构与算法（三）栈结构
-date: 2020-07-21 11:49:12
-tags: [JavaScript, 数据结构, 算法, 栈]
-categories: [算法专辑]
----
+## JavaScript 数据结构与算法（三）栈结构
 
 数组是一个线性结构，并且可以在数组的任意位置插入和删除元素。
 但是有时候，我们为了实现某些功能，必须对这种任意性加以限制。
@@ -27,7 +22,7 @@ categories: [算法专辑]
   即 A 函数中调用 B，B 调用 C，C 调用 D；在 A 执行的过程中会将 A 压入栈，随后 B 执行时 B 也被压入栈，函数 C 和 D 执行时也会被压入栈。所以当前栈的顺序为：A->B->C->D（栈顶）；函数 D 执行完之后，会弹出栈被释放，弹出栈的顺序为 D->C->B->A;
 
 - 递归：
-  为什么没有停止条件的递归会造成栈溢出？比如函数 A 为递归函数，不断地调用自己（因为函数还没有执行完，不会把函数弹出栈），不停地把相同的函数 A 压入栈，最后造成栈溢出（Stack Overfloat）。
+  为什么没有停止条件的递归会造成栈溢出？比如函数 A 为递归函数，不断地调用自己（因为函数还没有执行完，不会把函数弹出栈），不停地把相同的函数 A 压入栈，最后造成栈溢出（Queue Overfloat）。
 
 ### 练习
 
@@ -62,7 +57,7 @@ categories: [算法专辑]
 
 ```js
 // 使用 ES6 实现
-class Stack {
+class Queue {
   items = [];
 
   // push() 压栈操作，给栈中添加元素
@@ -104,7 +99,7 @@ class Stack {
 #### 测试栈结构
 
 ```js
-const stack = new Stack();
+const stack = new Queue();
 stack.push(1);
 stack.push(22);
 stack.push(333);
@@ -128,8 +123,8 @@ console.log(stack.toString()); //--> 1 22
 ```js
 // 十进制转换成二进制
 function dec2bin(dec) {
-  // new 一个 Stack，保存余数
-  const stack = new Stack();
+  // new 一个 Queue，保存余数
+  const stack = new Queue();
 
   // 当不确定循环次数时，使用 while 循环
   while (dec > 0) {
