@@ -18,7 +18,7 @@
 
 - 添加一个元素到数组的最后位置 `array.push(item)`
 - 在数组首位插入一个元素 `array.unshift(item)`
-- 在指定索引位置插入元素 `array.splice(index, 0, item)`
+- 在指定索引位置插入元素 `array.splice(index.js, 0, item)`
   splice() 第二个参数为 0 时，表示插入数据。
   ```js
   let myArray = [1, 2, 3];
@@ -42,14 +42,14 @@
 
 ### 修改元素
 
-- 修改指定索引位置的元素 `array.splice(index, 1, item)`
+- 修改指定索引位置的元素 `array.splice(index.js, 1, item)`
   ```js
   let myArray3 = [1, 2, 3, 4, 5, 6];
   // 修改 索引 1 的位置的元素为 AA
   myArray2.splice(1, 1, "AA");
   console.log(myArray3); //--> [1, "AA", 3, 4, 5, 6]
   ```
-- 修改指定索引位置的几个元素 `array.splice(index, number, item)`
+- 修改指定索引位置的几个元素 `array.splice(index.js, number, item)`
   ```js
   let myArray4 = [1, 2, 3, 4, 5, 6, 7];
   // 在 索引 2 的位置起，修改两个元素为 AA BB
