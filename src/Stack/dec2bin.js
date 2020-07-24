@@ -1,4 +1,4 @@
-import Stack from './stack.js';
+import Stack from './stack';
 
 // 十进制转换成二进制
 export default function dec2bin(dec) {
