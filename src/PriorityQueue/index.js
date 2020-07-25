@@ -1,4 +1,4 @@
-import PriorityQueue from './priorityQueue';
+import { PriorityQueue } from './priorityQueue';
 
 // ----- 优先队列结构测试 -----//
 console.log('// ----- 优先队列结构测试 START -----//');

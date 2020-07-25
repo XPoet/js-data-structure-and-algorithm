@@ -1,24 +1,26 @@
-// 优先队列结构的封装
-export default class PriorityQueue {
+/**
+ * 优先队列结构的封装
+ */
+
+// 优先队列内部的元素类
+class QueueElement {
+  constructor(element, priority) {
+    this.element = element;
+    this.priority = priority;
+  }
+}
+
+// 优先队列类
+export class PriorityQueue {
 
   constructor() {
-
     this.items = [];
-
-    // 内部类
-    this.QueueElement = class {
-      constructor(element, priority) {
-        this.element = element;
-        this.priority = priority;
-      }
-    };
-
   }
 
   // enqueue() 入队，将元素按优先级加入到队列中
   enqueue(element, priority) {
     // 根据传入的元素，创建 QueueElement 对象
-    const queueElement = new this.QueueElement(element, priority);
+    const queueElement = new QueueElement(element, priority);
 
     // 判断队列是否为空
     if (this.isEmpty()) {
