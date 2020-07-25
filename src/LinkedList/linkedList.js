@@ -1,5 +1,13 @@
+// 封装节点类
+export class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
 // 单向链表结构的封装
-export default class LinkedList {
+export class LinkedList {
 
   constructor() {
     // 初始链表长度为 0
@@ -7,16 +15,6 @@ export default class LinkedList {
 
     // 初始 head 为 null，head 指向链表的第一个节点
     this.head = null;
-
-    // 内部类（链表里的节点 Node）
-    this.Node = class {
-
-      constructor(data) {
-        this.data = data;
-        this.next = null;
-      }
-    };
-
   }
 
   // ------------ 链表的常见操作 ------------ //
@@ -24,7 +22,7 @@ export default class LinkedList {
   // append() 往链表尾部追加数据
   append(data) {
     // 1、创建新节点
-    const newNode = new this.Node(data);
+    const newNode = new Node(data);
 
     // 2、追加新节点
     if (this.length === 0) {
@@ -58,7 +56,7 @@ export default class LinkedList {
     if (position < 0 || position > this.length) return false;
 
     // 2、创建新节点
-    const newNode = new this.Node(data);
+    const newNode = new Node(data);
 
     // 3、插入节点
     if (position === 0) {
@@ -206,3 +204,5 @@ export default class LinkedList {
     return result;
   }
 }
+
+
