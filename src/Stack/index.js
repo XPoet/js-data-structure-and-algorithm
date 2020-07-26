@@ -9,7 +9,7 @@ const stack = new Stack();
 stack.push(1);
 stack.push(2);
 stack.push(3);
-console.log(stack);
+console.log(stack.items); //--> [1, 2, 3]
 
 // pop() 测试
 console.log(stack.pop()); //--> 3
