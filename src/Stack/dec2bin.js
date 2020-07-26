@@ -1,6 +1,6 @@
 import Stack from './stack';
 
-// 十进制转换成二进制
+// 利用栈结构的特点封装实现十进制转换为二进制的方法
 export default function dec2bin(dec) {
   // new 一个 Stack，保存余数
   const stack = new Stack();
@@ -9,7 +9,7 @@ export default function dec2bin(dec) {
   while (dec > 0) {
     // 除二取余法
     stack.push(dec % 2); // 获取余数，放入栈中
-    dec = Math.floor(dec / 2);
+    dec = Math.floor(dec / 2); // 除数除以二，向下取整
   }
 
   let binaryString = '';

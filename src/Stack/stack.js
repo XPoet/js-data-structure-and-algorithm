@@ -5,7 +5,7 @@ export default class Stack {
     this.items = [];
   }
 
-  // push() 压栈操作，给栈中添加元素
+  // push(item) 压栈操作，往栈里面添加元素
   push(item) {
     this.items.push(item);
   }
