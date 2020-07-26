@@ -46,21 +46,24 @@
 
 #### 栈常见的操作
 
-- `push()`：添加一个新元素到栈顶位置。
-- `pop()`：移除栈顶的元素，同时返回被移除的元素。
-- `peek()`：返回栈顶的元素，不对栈做任何修改（该方法不会移除栈顶的元素，仅仅返回它）。
-- `isEmpty()`：如果栈里没有任何元素就返回 `true`，否则返回 `false`。
-- `size()`：返回栈里的元素个数。这个方法和数组的 `length` 属性类似。
-- `toString()`：将栈结构的内容以字符串的形式返回。
+- `push()` 添加一个新元素到栈顶位置。
+- `pop()` 移除栈顶的元素，同时返回被移除的元素。
+- `peek()` 返回栈顶的元素，不对栈做任何修改（该方法不会移除栈顶的元素，仅仅返回它）。
+- `isEmpty()` 如果栈里没有任何元素就返回 `true`，否则返回 `false`。
+- `size()` 返回栈里的元素个数。这个方法和数组的 `length` 属性类似。
+- `toString()` 将栈结构的内容以字符串的形式返回。
 
 #### JavaScript 代码实现栈结构
 
 ```js
-// 使用 ES6 实现
-class Queue {
-  items = [];
+// 栈结构的封装
+class Stack {
 
-  // push() 压栈操作，给栈中添加元素
+  constructor() {
+    this.items = [];
+  }
+
+  // push(item) 压栈操作，往栈里面添加元素
   push(item) {
     this.items.push(item);
   }
@@ -87,53 +90,59 @@ class Queue {
 
   // toString() 返回以字符串形式的栈内元素数据
   toString() {
-    let result = "";
+    let result = '';
     for (let item of this.items) {
-      result += item + " ";
+      result += item + ' ';
     }
     return result;
   }
 }
 ```
 
-#### 测试栈结构
+#### 测试封装的栈结构
 
 ```js
-const stack = new Queue();
+// push() 测试
 stack.push(1);
-stack.push(22);
-stack.push(333);
-stack.push(4444);
-console.log(stack.items); //--> [1, 22, 333, 4444]
+stack.push(2);
+stack.push(3);
+console.log(stack.items); //--> [1, 2, 3]
 
-console.log(stack.pop()); //--> 444
-console.log(stack.pop()); //--> 333
-console.log(stack.peek()); //--> 22
+// pop() 测试
+console.log(stack.pop()); //--> 3
+
+// peek() 测试
+console.log(stack.peek()); //--> 2
+
+// isEmpty() 测试
 console.log(stack.isEmpty()); //--> false
+
+// size() 测试
 console.log(stack.size()); //--> 2
-console.log(stack.toString()); //--> 1 22
+
+// toString() 测试
+console.log(stack.toString()); //--> 1 2
 ```
 
 ### 栈结构的简单应用
 
-利用栈结构的特点封装十进制转换为二进制的函数。
+利用栈结构的特点封装实现十进制转换为二进制的方法。
 
 ### 代码实现
 
 ```js
-// 十进制转换成二进制
 function dec2bin(dec) {
-  // new 一个 Queue，保存余数
-  const stack = new Queue();
+  // new 一个 Stack，保存余数
+  const stack = new Stack();
 
   // 当不确定循环次数时，使用 while 循环
   while (dec > 0) {
     // 除二取余法
     stack.push(dec % 2); // 获取余数，放入栈中
-    dec = Math.floor(dec / 2);
+    dec = Math.floor(dec / 2); // 除数除以二，向下取整
   }
 
-  let binaryString = "";
+  let binaryString = '';
   // 不断地从栈中取出元素（0 或 1），并拼接到一起。
   while (!stack.isEmpty()) {
     binaryString += stack.pop();
@@ -146,7 +155,7 @@ function dec2bin(dec) {
 #### 测试
 
 ```js
-// 验证十进制转换二进制方法
-console.log(dec2bin(10)); //--> 1010
+// dec2bin() 测试
 console.log(dec2bin(100)); //--> 1100100
+console.log(dec2bin(88)); //--> 1011000
 ```
