@@ -1,6 +1,6 @@
 import Queue from './queue.js';
 
-// 击鼓传花游戏求解方法的封装
+// 利用队列结构的特点实现击鼓传花游戏求解方法的封装
 export default function passGame(nameList, number) {
   // 1、new 一个 Queue 对象
   const queue = new Queue();

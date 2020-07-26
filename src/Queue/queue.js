@@ -5,17 +5,17 @@ export default class Queue {
     this.items = [];
   }
 
-  // enqueue() 入队，将元素加入到队列中
+  // enqueue(item) 入队，将元素加入到队列中
   enqueue(item) {
     this.items.push(item);
   }
 
-  // dequeue() 出队，从队列中删除前端元素，返回删除的元素
+  // dequeue() 出队，从队列中删除队头元素，返回删除的那个元素
   dequeue() {
     return this.items.shift();
   }
 
-  // front() 查看队列的前端元素
+  // front() 查看队列的队头元素
   front() {
     return this.items[0];
   }
@@ -30,6 +30,7 @@ export default class Queue {
     return this.items.length;
   }
 
+  // toString() 将队列中的元素以字符串形式返回
   toString() {
     let result = '';
     for (let item of this.items) {
