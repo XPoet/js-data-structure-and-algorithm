@@ -34,31 +34,33 @@
 
 #### 队列常见的操作
 
-- `enqueue(element)`：向队列尾部添加一个（或多个）新的项。
-- `dequeue()`：移除队列的第一（即排在队列最前面的）项，并返回被移除的元素。
-- `front()`：返回队列中的第一个元素——最先被添加，也将是最先被移除的元素。队列不做任何变动（不移除元素，只返回元素信息与 Stack 类的 peek 方法非常类似）。
-- `isEmpty()`：如果队列中不包含任何元素，返回 true，否则返回 false。
-- `size()`：返回队列包含的元素个数，与数组的 length 属性类似。
-- `toString()`：将队列中的内容，转成字符串形式。
+- `enqueue(element)` 向队列尾部添加一个（或多个）新的项。
+- `dequeue()` 移除队列的第一（即排在队列最前面的）项，并返回被移除的元素。
+- `front()` 返回队列中的第一个元素——最先被添加，也将是最先被移除的元素。队列不做任何变动（不移除元素，只返回元素信息与 Stack 类的 peek 方法非常类似）。
+- `isEmpty()` 如果队列中不包含任何元素，返回 true，否则返回 false。
+- `size()` 返回队列包含的元素个数，与数组的 length 属性类似。
+- `toString()` 将队列中的内容，转成字符串形式。
 
 #### 代码实现
 
 ```js
-// 使用 ES6 实现
 class Queue {
-  items = [];
 
-  // enqueue() 入队，将元素加入到队列中
+  constructor() {
+    this.items = [];
+  }
+
+  // enqueue(item) 入队，将元素加入到队列中
   enqueue(item) {
     this.items.push(item);
   }
 
-  // dequeue() 出队，从队列中删除前端元素，返回删除的元素
+  // dequeue() 出队，从队列中删除队头元素，返回删除的那个元素
   dequeue() {
     return this.items.shift();
   }
 
-  // front() 查看队列的前端元素
+  // front() 查看队列的队头元素
   front() {
     return this.items[0];
   }
@@ -73,10 +75,11 @@ class Queue {
     return this.items.length;
   }
 
+  // toString() 将队列中的元素以字符串形式返回
   toString() {
-    let result = "";
+    let result = '';
     for (let item of this.items) {
-      result += item + " ";
+      result += item + ' ';
     }
     return result;
   }
@@ -88,23 +91,28 @@ class Queue {
 ```js
 const queue = new Queue();
 
-// 入队操作
-queue.enqueue("a");
-queue.enqueue("b");
-queue.enqueue("c");
-queue.enqueue("d");
+// enqueue() 测试
+queue.enqueue('a');
+queue.enqueue('b');
+queue.enqueue('c');
+queue.enqueue('d');
 console.log(queue.items); //--> ["a", "b", "c", "d"]
 
-// 出队操作（先进先出）
+// dequeue() 测试
 queue.dequeue();
 queue.dequeue();
 console.log(queue.items); //--> ["c", "d"]
 
-// 查看队头的元素
+// front() 测试
 console.log(queue.front()); //--> c
 
+// isEmpty() 测试
 console.log(queue.isEmpty()); //--> false
+
+// size() 测试
 console.log(queue.size()); //--> 2
+
+// toString() 测试
 console.log(queue.toString()); //--> c d
 ```
 
@@ -117,6 +125,7 @@ console.log(queue.toString()); //--> c d
 #### 代码实现
 
 ```js
+// 利用队列结构的特点实现击鼓传花游戏求解方法的封装
 function passGame(nameList, number) {
   // 1、new 一个 Queue 对象
   const queue = new Queue();
@@ -155,9 +164,10 @@ function passGame(nameList, number) {
 #### 测试代码
 
 ```js
-const names = ["lily", "lucy", "tom", "tony", "jack"];
+// passGame() 测试
+const names = ['lily', 'lucy', 'tom', 'tony', 'jack'];
 const targetIndex = passGame(names, 4);
-console.log("击鼓传花", names[targetIndex]); //--> lily
+console.log('击鼓传花', names[targetIndex]); //--> lily
 ```
 
 ### 优先队列
