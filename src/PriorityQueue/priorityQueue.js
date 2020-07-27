@@ -1,3 +1,5 @@
+import Queue from '../Queue/queue';
+
 /**
  * 优先队列结构的封装
  */
@@ -10,14 +12,15 @@ class QueueElement {
   }
 }
 
-// 优先队列类
-export class PriorityQueue {
+// 优先队列类（继承 Queue 类）
+export class PriorityQueue extends Queue {
 
   constructor() {
-    this.items = [];
+    super();
   }
 
-  // enqueue() 入队，将元素按优先级加入到队列中
+  // enqueue(element, priority) 入队，将元素按优先级加入到队列中
+  // 重写 enqueue()
   enqueue(element, priority) {
     // 根据传入的元素，创建 QueueElement 对象
     const queueElement = new QueueElement(element, priority);
@@ -48,25 +51,31 @@ export class PriorityQueue {
   }
 
   // dequeue() 出队，从队列中删除前端元素，返回删除的元素
+  // 继承 Queue 类的 dequeue()
   dequeue() {
-    return this.items.shift();
+    return super.dequeue();
   }
 
   // front() 查看队列的前端元素
+  // 继承 Queue 类的 front()
   front() {
-    return this.items[0];
+    return super.front();
   }
 
   // isEmpty() 查看队列是否为空
+  // 继承 Queue 类的 isEmpty()
   isEmpty() {
-    return this.items.length === 0;
+    return super.isEmpty();
   }
 
   // size() 查看队列中元素的个数
+  // 继承 Queue 类的 size()
   size() {
-    return this.items.length;
+    return super.size();
   }
 
+  // toString() 将队列中元素以字符串形式返回
+  // 重写 toString()
   toString() {
     let result = '';
     for (let item of this.items) {
