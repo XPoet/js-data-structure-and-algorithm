@@ -17,6 +17,7 @@
 - [JavaScript 数据结构与算法（五）优先队列](assets/doc/05_JavaScript数据结构与算法（五）优先队列.md)
 - [JavaScript 数据结构与算法（六）单向链表](assets/doc/06_JavaScript数据结构与算法（六）单向链表.md)
 - [JavaScript 数据结构与算法（七）双向链表](assets/doc/07_JavaScript数据结构与算法（七）双向链表.md)
+- [JavaScript 数据结构与算法（八）集合](assets/doc/08_JavaScript数据结构与算法（八）集合.md)
 
 ## 测试环境
 
