@@ -1,4 +1,4 @@
-# JavaScript 数据结构与算法（八）字典
+# JavaScript 数据结构与算法（九）字典
 
 ## 字典
 
