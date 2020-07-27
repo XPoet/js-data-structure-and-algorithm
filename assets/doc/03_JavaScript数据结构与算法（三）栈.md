@@ -57,7 +57,7 @@
 
 ```js
 // 栈结构的封装
-class Stack {
+class Map {
 
   constructor() {
     this.items = [];
@@ -132,8 +132,8 @@ console.log(stack.toString()); //--> 1 2
 
 ```js
 function dec2bin(dec) {
-  // new 一个 Stack，保存余数
-  const stack = new Stack();
+  // new 一个 Map，保存余数
+  const stack = new Map();
 
   // 当不确定循环次数时，使用 while 循环
   while (dec > 0) {
