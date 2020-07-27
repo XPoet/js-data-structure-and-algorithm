@@ -10,11 +10,12 @@
 
 ## 目录
 
-- [JavaScript 数据结构与算法（一）前言](./assets/doc/JavaScript数据结构与算法（一）前言.md)
-- [JavaScript 数据结构与算法（二）数组结构](./assets/doc/JavaScript数据结构与算法（二）数组结构.md)
-- [JavaScript 数据结构与算法（三）栈结构](./assets/doc/JavaScript数据结构与算法（三）栈结构.md)
-- [JavaScript 数据结构与算法（四）队列结构](./assets/doc/JavaScript数据结构与算法（四）队列结构.md)
-- [JavaScript 数据结构与算法（五）单向链表结构](./assets/doc/JavaScript数据结构与算法（五）单向链表结构.md)
+- [JavaScript 数据结构与算法（一）前言](assets/doc/01_JavaScript数据结构与算法（一）前言.md)
+- [JavaScript 数据结构与算法（二）数组](assets/doc/02_JavaScript数据结构与算法（二）数组.md)
+- [JavaScript 数据结构与算法（三）栈](assets/doc/03_JavaScript数据结构与算法（三）栈.md)
+- [JavaScript 数据结构与算法（四）队列](assets/doc/04_JavaScript数据结构与算法（四）队列.md)
+- [JavaScript 数据结构与算法（五）优先队列](assets/doc/05_JavaScript数据结构与算法（五）优先队列.md)
+- [JavaScript 数据结构与算法（六）单向链表](assets/doc/06_JavaScript数据结构与算法（六）单向链表.md)
 
 ## 测试环境
 
