@@ -12,3 +12,9 @@ import './LinkedList'
 
 // 导入双向链表结构的封装及测试代码
 import './DoublyLinkedList'
+
+// 导入集合结构的封装及测试代码
+import './Set'
+
+// 导入字典结构的封装及测试代码
+import './Map'
