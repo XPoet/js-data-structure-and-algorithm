@@ -19,7 +19,7 @@ export class LinkedList {
 
   // ------------ 链表的常见操作 ------------ //
 
-  // append() 往链表尾部追加数据
+  // append(data) 往链表尾部追加数据
   append(data) {
     // 1、创建新节点
     const newNode = new Node(data);
@@ -46,7 +46,7 @@ export class LinkedList {
     this.length++;
   }
 
-  // insert() 在指定位置（position）插入节点
+  // insert(position, data) 在指定位置（position）插入节点
   insert(position, data) {
     // position 新插入节点的位置
     // position = 0 表示新插入后是第一个节点
@@ -91,7 +91,7 @@ export class LinkedList {
     return newNode;
   }
 
-  // getData() 获取指定位置的 data
+  // getData(position) 获取指定位置的 data
   getData(position) {
     // 1、position 越界判断
     if (position < 0 || position >= this.length) return null;
@@ -108,7 +108,7 @@ export class LinkedList {
     return currentNode.data;
   }
 
-  // indexOf() 返回指定 data 的 index，如果没有，返回 -1。
+  // indexOf(data) 返回指定 data 的 index，如果没有，返回 -1。
   indexOf(data) {
     let currentNode = this.head;
     let index = 0;
@@ -124,7 +124,7 @@ export class LinkedList {
     return -1;
   }
 
-  // update() 修改指定位置节点的 data
+  // update(position, data) 修改指定位置节点的 data
   update(position, data) {
     // 涉及到 position 都要进行越界判断
     // 1、position 越界判断
@@ -143,7 +143,7 @@ export class LinkedList {
     return currentNode;
   }
 
-  // removeAt() 删除指定位置的节点
+  // removeAt(position) 删除指定位置的节点，并返回删除的那个节点
   removeAt(position) {
     // 1、position 越界判断
     if (position < 0 || position >= this.length) return null;
@@ -175,9 +175,9 @@ export class LinkedList {
     return currentNode;
   }
 
-  // remove() 删除指定 data 的节点
+  // remove(data) 删除指定 data 的节点，并返回删除的那个节点
   remove(data) {
-    this.removeAt(this.indexOf(data));
+    return this.removeAt(this.indexOf(data));
   }
 
   // isEmpty() 判断链表是否为空

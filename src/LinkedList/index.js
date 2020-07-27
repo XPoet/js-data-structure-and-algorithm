@@ -1,6 +1,6 @@
 import { LinkedList } from './linkedList';
 
-// ----- 单向链表结构测试 -----//
+// ---------------- 封装的单向链表结构测试 ---------------- //
 console.log('// ----- 单向链表结构测试 START -----//');
 const linkedList = new LinkedList();
 
