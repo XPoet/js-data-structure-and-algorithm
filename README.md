@@ -19,6 +19,7 @@
 - [JavaScript 数据结构与算法（七）双向链表](assets/doc/07_JavaScript数据结构与算法（七）双向链表.md)
 - [JavaScript 数据结构与算法（八）集合](assets/doc/08_JavaScript数据结构与算法（八）集合.md)
 - [JavaScript 数据结构与算法（九）字典](assets/doc/09_JavaScript数据结构与算法（九）字典.md)
+- [JavaScript 数据结构与算法（十）哈希表](assets/doc/10_JavaScript数据结构与算法（十）哈希表.md)
 
 ## 测试环境
 
