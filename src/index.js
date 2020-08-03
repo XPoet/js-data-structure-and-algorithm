@@ -20,4 +20,7 @@
 // import './Map'
 
 // 导入哈希表结构的封装及测试代码
-import './HashTable';
+// import './HashTable';
+
+// 导入树结构的封装及测试代码
+import './Tree';
