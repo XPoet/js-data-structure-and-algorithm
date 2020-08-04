@@ -8,7 +8,7 @@
 
 > 重点要掌握数据结构与算法的思想，编程语言只是一种实现工具。
 
-## 目录
+## 文档目录
 
 - [JavaScript 数据结构与算法（一）前言](assets/doc/01_JavaScript数据结构与算法（一）前言.md)
 - [JavaScript 数据结构与算法（二）数组](assets/doc/02_JavaScript数据结构与算法（二）数组.md)
@@ -20,6 +20,19 @@
 - [JavaScript 数据结构与算法（八）集合](assets/doc/08_JavaScript数据结构与算法（八）集合.md)
 - [JavaScript 数据结构与算法（九）字典](assets/doc/09_JavaScript数据结构与算法（九）字典.md)
 - [JavaScript 数据结构与算法（十）哈希表](assets/doc/10_JavaScript数据结构与算法（十）哈希表.md)
+- [JavaScript 数据结构与算法（十一）树](assets/doc/11_JavaScript数据结构与算法（十一）树.md)
+
+## 代码目录
+
+- [栈的封装](src/Stack/stack.js)
+- [队列的封装](src/Queue/queue.js)
+- [优先队列的封装](src/PriorityQueue/priorityQueue.js)
+- [单向链表的封装](src/LinkedList/linkedList.js)
+- [双向链表的封装](src/DoublyLinkedList/doublyLinkedList.js)
+- [集合的封装](src/Set/set.js)
+- [字典的封装](src/Map/map.js)
+- [哈希表的封装](src/HashTable/hashTable.js)
+- [二叉搜索树的封装](src/Tree/tree.js)
 
 ## 测试环境
 
