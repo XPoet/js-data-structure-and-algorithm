@@ -1,0 +1,183 @@
+一. 图的遍历
+和其他数据结构一样, 我们需要可以通过某种算法来遍历结构中每一个数据.
+
+这样可以保证, 在我们需要时, 通过这种算法来访问某个顶点的数据以及它对应的边.
+
+遍历的方式
+图的遍历思想
+
+图的遍历算法的思想在于必须访问每个第一次访问的节点, 并且追踪有哪些顶点还没有被访问到.
+有两种算法可以对图进行遍历
+
+广度优先搜索(Breadth-First Search, 简称BFS)
+深度优先搜索(Depth-First Search, 简称DFS)
+两种遍历算法, 都需要明确指定第一个被访问的顶点.
+遍历的注意点:
+
+完全探索一个顶点要求我们便查看该顶点的每一条边.
+对于每一条所连接的没有被访问过的顶点, 将其标注为被发现的, 并将其加进待访问顶点列表中.
+为了保证算法的效率: 每个顶点至多访问两次.
+两种算法的思想:
+
+BFS: 基于队列, 入队列的顶点先被探索.
+DFS: 基于栈, 通过将顶点存入栈中, 顶点是沿着路径被探索的, 存在新的相邻顶点就去访问.
+为了记录顶点是否被访问过, 我们使用三种颜色来反应它们的状态:(或者两种颜色也可以)
+
+白色: 表示该顶点还没有被访问.
+灰色: 表示该顶点被访问过, 但并未被探索过.
+黑色: 表示该顶点被访问过且被完全探索过.
+初始化颜色代码:
+
+// 广度优先算法
+Graph.prototype.initializeColor = function () {
+    var colors = []
+    for (var i = 0; i < this.vertexes.length; i++) {
+        colors[this.vertexes[i]] = "white"
+    }
+    return colors
+}
+广度优先搜索
+广度优先搜索算法的思路:
+
+广度优先算法会从指定的第一个顶点开始遍历图, 先访问其所有的相邻点, 就像一次访问图的一层.
+换句话说, 就是先宽后深的访问顶点
+图解BFS
+
+img
+广度优先搜索的实现:
+
+创建一个队列Q.
+将v标注为被发现的(灰色), 并将v将入队列Q
+如果Q非空, 执行下面的步骤:
+将v从Q中取出队列.
+将v标注为被发现的灰色.
+将v所有的未被访问过的邻接点(白色), 加入到队列中.
+将v标志为黑色.
+广度优先搜索的代码:
+
+Graph.prototype.bfs = function (v, handler) {
+    // 1.初始化颜色
+    var color = this.initializeColor()
+
+    // 2.创建队列
+    var queue = new Queue()
+
+    // 3.将传入的顶点放入队列中
+    queue.enqueue(v)
+
+    // 4.从队列中依次取出和放入数据
+    while (!queue.isEmpty()) {
+        // 4.1.从队列中取出数据
+        var qv = queue.dequeue()
+
+        // 4.2.获取qv相邻的所有顶点
+        var qAdj = this.adjList.get(qv)
+
+        // 4.3.将qv的颜色设置成灰色
+        color[qv] = "gray"
+
+        // 4.4.将qAdj的所有顶点依次压入队列中
+        for (var i = 0; i < qAdj.length; i++) {
+            var a = qAdj[i]
+            if (color[a] === "white") {
+                color[a] = "gray"
+                queue.enqueue(a)
+            }
+        }
+
+        // 4.5.因为qv已经探测完毕, 将qv设置成黑色
+        color[qv] = "black"
+
+        // 4.6.处理qv
+        if (handler) {
+            handler(qv)
+        }
+    }
+}
+代码解析:
+
+代码序号1: 我们先为每个顶点记录一种颜色, 用于保持它当前的状态.
+代码序号2: 创建队列, 这里需要用到我们之前封装的队列类型, 因此需要导入.
+代码序号3: 将开始的顶点放入队列中.
+代码序号4: 开始处理队列中的数据.
+4.1.先从队列中取出顶点qv.
+4.2.取出该顶点相邻的顶点数组qAdj.
+4.3.因为之前的qv已经被探测过, 所有将qv设置为灰色.
+4.4.遍历qAdj所有的所有的顶点, 判断颜色, 如果是白色, 那么将其将入到队列中. 并且将该顶点设置为灰色.
+4.5.将qv顶点设置为黑色
+4.6.处理qv顶点.
+测试代码:
+
+// 调用广度优先算法
+var result = ""
+graph.bfs(graph.vertexes[0], function (v) {
+    result += v + " "
+})
+alert(result) // A B C D E F G H I 
+深度优先搜索
+深度优先搜索的思路:
+
+深度优先搜索算法将会从第一个指定的顶点开始遍历图, 沿着路径知道这条路径最后被访问了.
+接着原路回退并探索吓一条路径.
+图解DFS:
+
+img
+深度优先搜索算法的实现:
+
+广度优先搜索算法我们使用的是队列, 这里可以使用栈完成, 也可以使用递归.
+方便代码书写, 我们还是使用递归(递归本质上就是函数栈的调用)
+深度优先搜索算法的实现:
+
+// 深度优先搜索
+Graph.prototype.dfs = function (handler) {
+    // 1.初始化颜色
+    var color = this.initializeColor()
+
+    // 2.遍历所有的顶点, 开始访问
+    for (var i = 0; i < this.vertexes.length; i++) {
+        if (color[this.vertexes[i]] === "white") {
+            this.dfsVisit(this.vertexes[i], color, handler)
+        }
+    }
+}
+
+// dfs的递归调用方法
+Graph.prototype.dfsVisit = function (u, color, handler) {
+    // 1.将u的颜色设置为灰色
+    color[u] = "gray"
+
+    // 2.处理u顶点
+    if (handler) {
+        handler(u)
+    }
+
+    // 3.u的所有邻接顶点的访问
+    var uAdj = this.adjList.get(u)
+    for (var i = 0; i < uAdj.length; i++) {
+        var w = uAdj[i]
+        if (color[w] === "white") {
+            this.dfsVisit(w, color, handler)
+        }
+    }
+
+    // 4.将u设置为黑色
+    color[u] = "black"
+}
+代码解析:
+
+代码序号1: 初始化颜色.和广度优先搜索算法一样.
+代码序号2: 遍历所有的顶点, 每遍历一个顶点, 让其执行递归函数.
+递归代码1: 探测了u顶点, 所有u顶点的颜色设置为灰色.
+递归代码2: 访问u顶点, 通过回调函数传入u.
+递归代码3: 访问u顶点的相连的顶点, 在访问的过程中判断该顶点如果为白色, 说明未探测, 调用递归方法.
+递归代码4: u被探测过, 也被访问过, 将u的颜色设置为黑色.
+递归的代码较难理解一些, 我们这里给出一副图来帮助大家理解过程:
+
+img
+二. 其他算法
+暂时不讨论, 后续有时间补充
+
+作者：coderwhy
+链接：https://www.jianshu.com/p/c710de4712d4
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
