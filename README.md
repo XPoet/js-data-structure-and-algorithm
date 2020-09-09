@@ -21,6 +21,7 @@
 - [JavaScript 数据结构与算法（九）字典](assets/doc/09_JavaScript数据结构与算法（九）字典.md)
 - [JavaScript 数据结构与算法（十）哈希表](assets/doc/10_JavaScript数据结构与算法（十）哈希表.md)
 - [JavaScript 数据结构与算法（十一）树](assets/doc/11_JavaScript数据结构与算法（十一）树.md)
+- [JavaScript 数据结构与算法（十一）二叉搜索树](assets/doc/12_JavaScript数据结构与算法（十二）二叉搜索树.md)
 
 ## 代码目录
 
@@ -44,4 +45,35 @@ npm install
 ### 启动服务
 ```bash
 npm run start
+```
+
+开启**测试环境**的服务后，可在 `src/index.js` 选择要测试的代码，查看具体值输出。
+
+```js
+// 导入栈结构的封装及测试代码
+// import './Stack'
+
+// 导入队列结构的封装及测试代码
+// import './Queue'
+
+// 导入优先队列结构的封装及测试代码
+// import './PriorityQueue'
+
+// 导入单向链表结构的封装及测试代码
+// import './LinkedList'
+
+// 导入双向链表结构的封装及测试代码
+// import './DoublyLinkedList'
+
+// 导入集合结构的封装及测试代码
+// import './Set'
+
+// 导入字典结构的封装及测试代码
+// import './Map'
+
+// 导入哈希表结构的封装及测试代码
+// import './HashTable';
+
+// 导入树结构的封装及测试代码
+import './Tree';
 ```
