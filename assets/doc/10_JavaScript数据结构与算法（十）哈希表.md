@@ -1,4 +1,4 @@
-# JavaScript 数据结构与算法（十）哈希表.md
+# JavaScript 数据结构与算法（十）哈希表
 
 ## 认识哈希表
 
