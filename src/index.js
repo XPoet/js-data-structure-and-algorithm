@@ -11,7 +11,7 @@
 // import './LinkedList'
 
 // 导入双向链表结构的封装及测试代码
-// import './DoublyLinkedList'
+import './DoublyLinkedList'
 
 // 导入集合结构的封装及测试代码
 // import './Set'
@@ -23,4 +23,4 @@
 // import './HashTable';
 
 // 导入树结构的封装及测试代码
-import './Tree';
+// import './Tree';

@@ -23,9 +23,9 @@ console.log(doublyLinkedList.indexOf('XX')); //--> 3
 console.log(doublyLinkedList);
 
 // removeAt() 测试
-doublyLinkedList.removeAt(0);
-doublyLinkedList.removeAt(1);
-console.log(doublyLinkedList);
+// doublyLinkedList.removeAt(0);
+// doublyLinkedList.removeAt(1);
+// console.log(doublyLinkedList);
 
 // update() 测试
 console.log('update() 测试');
@@ -33,15 +33,16 @@ doublyLinkedList.update(0, '111111');
 console.log(doublyLinkedList);
 
 // remove() 测试
+console.log('remove() 测试');
 console.log(doublyLinkedList.remove('111111'));
-console.log(doublyLinkedList.remove('22222'));
+// console.log(doublyLinkedList.remove('22222'));
 console.log(doublyLinkedList);
 
 // forwardToString() 测试
-console.log(doublyLinkedList.forwardToString());
+// console.log(doublyLinkedList.forwardToString());
 
 // backwardString() 测试
-console.log(doublyLinkedList.backwardString());
+// console.log(doublyLinkedList.backwardString());
 
 console.log('// ----- 双向链表结构测试 END -----//');
 
