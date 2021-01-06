@@ -35,8 +35,8 @@
   例如：
   ```js
   let myArray2 = [1, 2, 3, 4, 5];
-  // 删除索引 4 位置起，2 个元素
-  myArray2.splice(4, 2);
+  // 删除索引 3 位置起，2 个元素
+  myArray2.splice(3, 2);
   console.log(myArray2); //--> [1, 2, 3]
   ```
 
