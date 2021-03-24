@@ -21,9 +21,8 @@
 - [JavaScript 数据结构与算法（九）字典](assets/doc/09_JavaScript数据结构与算法（九）字典.md)
 - [JavaScript 数据结构与算法（十）哈希表](assets/doc/10_JavaScript数据结构与算法（十）哈希表.md)
 - [JavaScript 数据结构与算法（十一）树](assets/doc/11_JavaScript数据结构与算法（十一）树.md)
-- [JavaScript 数据结构与算法（十一）二叉搜索树](assets/doc/12_JavaScript数据结构与算法（十二）二叉搜索树.md)
-（十二）图.md)
-- [JavaScript 数据结构与算法（十一）图](assets/doc/13_JavaScript数据结构与算法（十三）图.md)
+- [JavaScript 数据结构与算法（十二）二叉搜索树](assets/doc/12_JavaScript数据结构与算法（十二）二叉搜索树.md)
+- [JavaScript 数据结构与算法（十三）图](assets/doc/13_JavaScript数据结构与算法（十三）图.md)
 
 ## 代码目录
 
@@ -79,6 +78,7 @@ npm run start
 
 // 导入树结构的封装及测试代码
 import './Tree';
+
 // 导入图结构的封装及测试代码
 // import './Graph';
 ```
