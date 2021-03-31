@@ -1,14 +1,14 @@
-## JavaScript 数据结构与算法（七）双向链表
+# JavaScript 数据结构与算法（七）双向链表
 
-### 单向链表和双向链表
+## 单向链表和双向链表
 
-#### 单向链表
+### 单向链表
 
 - 只能从头遍历到尾或者从尾遍历到头（一般从头到尾）。
 - 链表相连的过程是单向的，实现原理是上一个节点中有指向下一个节点的引用。
 - 单向链表有一个比较明显的缺点：可以轻松到达下一个节点，但回到前一个节点很难，在实际开发中, 经常会遇到需要回到上一个节点的情况。
 
-#### 双向链表
+### 双向链表
 
 - 既可以从头遍历到尾，也可以从尾遍历到头。
 - 链表相连的过程是双向的。实现原理是一个节点既有向前连接的引用，也有一个向后连接的引用。
@@ -17,23 +17,17 @@
   - 每次在插入或删除某个节点时，都需要处理四个引用，而不是两个，实现起来会困难些。
   - 相对于单向链表，所占内存空间更大一些。
   - 但是，相对于双向链表的便利性而言，这些缺点微不足道。
-  
-  
 
+## 双向链表结构
 
-
-  
-  
-### 双向链表结构
-
-![](https://user-images.githubusercontent.com/24516169/88497604-724ef080-cff3-11ea-969b-3496e3a64ca6.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.3xy769h90v20.png)
 
 - 双向链表不仅有 head 指针指向第一个节点，而且有 tail 指针指向最后一个节点。
 - 每一个节点由三部分组成：item 储存数据、prev 指向前一个节点、next 指向后一个节点。
 - 双向链表的第一个节点的 prev 指向 null。
 - 双向链表的最后一个节点的 next 指向 null。
 
-### 双向链表常见的操作
+## 双向链表常见的操作
 
 - `append(element)` 向链表尾部追加一个新元素。
 - `insert(position, element)` 向链表的指定位置插入一个新元素。
@@ -42,18 +36,18 @@
 - `update(position, element)` 修改指定位置上的元素。
 - `removeAt(position)` 从链表中的删除指定位置的元素。
 - `remove(element)` 从链表删除指定的元素。
-- `isEmpty()` 如果链表中不包含任何元素，返回 trun，如果链表长度大于 0 则返回 false。
-- `size()` 返回链表包含的元素个数，与数组的 length 属性类似。
-- `toString()` 由于链表项使用了 Node 类，就需要重写继承自 JavaScript 对象默认的 toString 方法，让其只输出元素的值。
+- `isEmpty()` 如果链表中不包含任何元素，返回 `trun`，如果链表长度大于 0 则返回 `false`。
+- `size()` 返回链表包含的元素个数，与数组的 `length` 属性类似。
+- `toString()` 由于链表项使用了 Node 类，就需要重写继承自 JavaScript 对象默认的 `toString` 方法，让其只输出元素的值。
 - `forwardString()` 返回正向遍历节点字符串形式。
 - `backwordString()` 返回反向遍历的节点的字符串形式。
 
-### 双向链表的封装
+## 双向链表的封装
 
-#### 创建双向链表类 DoublyLinkedList
+### 创建双向链表类 DoublyLinkedList
 
-- DoublyNode 类继承单向链表的 Node 类，新添加 this.prev 属性，该属性用于指向上一个节点。
-- DoublyLinkedList 类继承 LinkedList 类，新添加 this.tail 属性，该属性指向末尾的节点。
+- DoublyNode 类继承单向链表的 Node 类，新添加 `this.prev` 属性，该属性用于指向上一个节点。
+- DoublyLinkedList 类继承 LinkedList 类，新添加 `this.tail` 属性，该属性指向末尾的节点。
 
 ```js
 // 双向链表的节点类（继承单向链表的节点类）
@@ -66,16 +60,14 @@ class DoublyNode extends Node {
 
 // 双向链表类继承单向链表类
 class DoublyLinkedList extends LinkedList {
-
   constructor() {
     super();
     this.tail = null;
   }
-
 }
 ```
 
-#### append(element)
+### append(element)
 
 ```js
 // append(element) 往双向链表尾部追加一个新的元素
@@ -101,7 +93,7 @@ this.length++;
 }
 ```
 
-#### insert(position, element)
+### insert(position, element)
 
 ```js
 // insert(position, data) 插入元素
@@ -157,7 +149,7 @@ insert(position, element) {
   }
 ```
 
-#### insert(position, element)
+### insert(position, element)
 
 ```js
 // insert(position, data) 插入元素
@@ -213,7 +205,7 @@ insert(position, element) {
   }
 ```
 
-#### removeAt(position)
+### removeAt(position)
 
 ```js
   // removeAt() 删除指定位置的节点
@@ -259,7 +251,7 @@ insert(position, element) {
   }
 ```
 
-#### update(position, data)
+### update(position, data)
 
 ```js
   // update(position, data) 修改指定位置的节点
@@ -274,7 +266,7 @@ insert(position, element) {
   }
 ```
 
-#### forwardToString()
+### forwardToString()
 
 ```js
 // forwardToString() 链表数据从前往后以字符串形式返回
@@ -292,7 +284,7 @@ insert(position, element) {
   }
 ```
 
-#### backwardString()
+### backwardString()
 
 ```js
 // backwardString() 链表数据从后往前以字符串形式返回
@@ -310,15 +302,14 @@ insert(position, element) {
   }
 ```
 
-#### 其他方法的实现
+### 其他方法的实现
 
-其他方法通过继承单向链表来实现。
+双向链表的其他方法通过继承单向链表来实现。
 
-#### 完整实现
+### 完整实现
 
 ```js
 class DoublyLinkedList extends LinkedList {
-
   constructor() {
     super();
     this.tail = null;
@@ -328,7 +319,6 @@ class DoublyLinkedList extends LinkedList {
   // append(element) 往双向链表尾部追加一个新的元素
   // 重写 append()
   append(element) {
-
     // 1、创建双向链表节点
     const newNode = new DoublyNode(element);
 
@@ -357,7 +347,8 @@ class DoublyLinkedList extends LinkedList {
     const newNode = new DoublyNode(element);
 
     // 3、判断多种插入情况
-    if (position === 0) { // 在第 0 个位置插入
+    if (position === 0) {
+      // 在第 0 个位置插入
 
       if (this.head === null) {
         this.head = newNode;
@@ -368,13 +359,14 @@ class DoublyLinkedList extends LinkedList {
         this.head.perv = newNode;
         this.head = newNode;
       }
-
-    } else if (position === this.length) { // 在最后一个位置插入
+    } else if (position === this.length) {
+      // 在最后一个位置插入
 
       this.tail.next = newNode;
       newNode.prev = this.tail;
       this.tail = newNode;
-    } else { // 在 0 ~ this.length 位置中间插入
+    } else {
+      // 在 0 ~ this.length 位置中间插入
 
       let targetIndex = 0;
       let currentNode = this.head;
@@ -417,23 +409,26 @@ class DoublyLinkedList extends LinkedList {
 
     // 2、根据不同情况删除元素
     let currentNode = this.head;
-    if (position === 0) { // 删除第一个节点的情况
+    if (position === 0) {
+      // 删除第一个节点的情况
 
-      if (this.length === 1) { // 链表内只有一个节点的情况
+      if (this.length === 1) {
+        // 链表内只有一个节点的情况
         this.head = null;
         this.tail = null;
-      } else { // 链表内有多个节点的情况
+      } else {
+        // 链表内有多个节点的情况
         this.head = this.head.next;
         this.head.prev = null;
       }
-
-    } else if (position === this.length - 1) { // 删除最后一个节点的情况
+    } else if (position === this.length - 1) {
+      // 删除最后一个节点的情况
 
       currentNode = this.tail;
       this.tail.prev.next = null;
       this.tail = this.tail.prev;
-
-    } else { // 删除 0 ~ this.length - 1 里面节点的情况
+    } else {
+      // 删除 0 ~ this.length - 1 里面节点的情况
 
       let targetIndex = 0;
       let previousNode = null;
@@ -444,7 +439,6 @@ class DoublyLinkedList extends LinkedList {
 
       previousNode.next = currentNode.next;
       currentNode.next.perv = previousNode;
-
     }
 
     this.length--;
@@ -477,15 +471,14 @@ class DoublyLinkedList extends LinkedList {
     return super.size();
   }
 
-
   // forwardToString() 链表数据从前往后以字符串形式返回
   forwardToString() {
     let currentNode = this.head;
-    let result = '';
+    let result = "";
 
     // 遍历所有的节点，拼接为字符串，直到节点为 null
     while (currentNode) {
-      result += currentNode.data + '--';
+      result += currentNode.data + "--";
       currentNode = currentNode.next;
     }
 
@@ -495,11 +488,11 @@ class DoublyLinkedList extends LinkedList {
   // backwardString() 链表数据从后往前以字符串形式返回
   backwardString() {
     let currentNode = this.tail;
-    let result = '';
+    let result = "";
 
     // 遍历所有的节点，拼接为字符串，直到节点为 null
     while (currentNode) {
-      result += currentNode.data + '--';
+      result += currentNode.data + "--";
       currentNode = currentNode.prev;
     }
 
@@ -508,27 +501,27 @@ class DoublyLinkedList extends LinkedList {
 }
 ```
 
-#### 代码测试
+### 代码测试
 
 ```js
 const doublyLinkedList = new DoublyLinkedList();
 
 // append() 测试
-doublyLinkedList.append('ZZ');
-doublyLinkedList.append('XX');
-doublyLinkedList.append('CC');
+doublyLinkedList.append("ZZ");
+doublyLinkedList.append("XX");
+doublyLinkedList.append("CC");
 console.log(doublyLinkedList);
 
 // insert() 测试
-doublyLinkedList.insert(0, '00');
-doublyLinkedList.insert(2, '22');
+doublyLinkedList.insert(0, "00");
+doublyLinkedList.insert(2, "22");
 console.log(doublyLinkedList);
 
 // getData() 测试
 console.log(doublyLinkedList.getData(1)); //--> ZZ
 
 // indexOf() 测试
-console.log(doublyLinkedList.indexOf('XX')); //--> 3
+console.log(doublyLinkedList.indexOf("XX")); //--> 3
 console.log(doublyLinkedList);
 
 // removeAt() 测试
@@ -537,12 +530,12 @@ doublyLinkedList.removeAt(1);
 console.log(doublyLinkedList);
 
 // update() 测试
-doublyLinkedList.update(0, '111111');
+doublyLinkedList.update(0, "111111");
 console.log(doublyLinkedList);
 
 // remove() 测试
-console.log(doublyLinkedList.remove('111111'));
-console.log(doublyLinkedList.remove('22222'));
+console.log(doublyLinkedList.remove("111111"));
+console.log(doublyLinkedList.remove("22222"));
 console.log(doublyLinkedList);
 
 // forwardToString() 测试

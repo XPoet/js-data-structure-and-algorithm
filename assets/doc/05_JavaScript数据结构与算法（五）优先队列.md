@@ -1,22 +1,22 @@
-## JavaScript 数据结构与算法（五）优先队列
+# JavaScript 数据结构与算法（五）优先队列
 
+## 场景
 
 生活中类似**优先队列**的场景：
 
 - 优先排队的人，优先处理。 (买票、结账、WC)。
 - 排队中，有紧急情况（特殊情况）的人可优先处理。
 
-
-### 优先队列
+## 优先队列
 
 优先级队列主要考虑的问题：
 
 - 每个元素不再只是一个数据，还包含优先级。
 - 在添加元素过程中，根据优先级放入到正确位置。
 
-#### 优先队列的实现
+## 优先队列的实现
 
-##### 代码实现
+### 代码实现
 
 ```js
 // 优先队列内部的元素类
@@ -29,7 +29,6 @@ class QueueElement {
 
 // 优先队列类（继承 Queue 类）
 export class PriorityQueue extends Queue {
-
   constructor() {
     super();
   }
@@ -92,26 +91,26 @@ export class PriorityQueue extends Queue {
   // toString() 将队列中元素以字符串形式返回
   // 重写 toString()
   toString() {
-    let result = '';
+    let result = "";
     for (let item of this.items) {
-      result += item.element + '-' + item.priority + ' ';
+      result += item.element + "-" + item.priority + " ";
     }
     return result;
   }
 }
 ```
 
-#### 测试代码
+### 测试代码
 
 ```js
 const priorityQueue = new PriorityQueue();
 
 // 入队 enqueue() 测试
-priorityQueue.enqueue('A', 10);
-priorityQueue.enqueue('B', 15);
-priorityQueue.enqueue('C', 11);
-priorityQueue.enqueue('D', 20);
-priorityQueue.enqueue('E', 18);
+priorityQueue.enqueue("A", 10);
+priorityQueue.enqueue("B", 15);
+priorityQueue.enqueue("C", 11);
+priorityQueue.enqueue("D", 20);
+priorityQueue.enqueue("E", 18);
 console.log(priorityQueue.items);
 //--> output:
 // QueueElement {element: "A", priority: 10}
@@ -139,5 +138,6 @@ console.log(priorityQueue.size()); //--> 3
 console.log(priorityQueue.toString()); //--> B-15 E-18 D-20
 ```
 
-### 补充：数组、栈和队列图解
-![array-stack-queue](https://user-images.githubusercontent.com/24516169/88051118-b02ebd80-cb8a-11ea-9acf-4329cbbff6fc.png)
+## 数组、栈和队列图解
+
+![数组、栈和队列图解](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.64kg5ej56vk0.png)

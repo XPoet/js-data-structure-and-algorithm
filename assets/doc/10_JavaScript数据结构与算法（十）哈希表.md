@@ -6,7 +6,7 @@
 
 哈希表通常是基于数组实现的，但是相对于数组，它存在更多优势：
 
-- 哈希表可以提供非常快速的**插入-删除-查找**操作。
+- 哈希表可以提供非常快速的 **插入-删除-查找** 操作。
 - 无论多少数据，插入和删除值都只需接近常量的时间，即 **O(1)** 的时间复杂度。实际上，只需要几个机器指令即可完成。
 - 哈希表的速度比树还要快，基本可以瞬间查找到想要的元素。
 - 哈希表相对于树来说编码要简单得多。
@@ -14,7 +14,7 @@
 哈希表同样存在不足之处：
 
 - 哈希表中的数据是没有顺序的，所以不能以一种固定的方式（比如从小到大 ）来遍历其中的元素。
-- 通常情况下，哈希表中的 key 是不允许重复的，不能放置相同的 key，用于保存不同的元素。
+- 通常情况下，哈希表中的 `key` 是不允许重复的，不能放置相同的 `key`，用于保存不同的元素。
 
 哈希表是什么？
 
@@ -79,7 +79,7 @@
 
 如下图所示，我们将每一个数字都对 10 进行取余操作，则余数的范围 0~9 作为数组的下标值。并且，数组每一个下标值对应的位置存储的不再是一个数字了，而是存储由经过取余操作后得到相同余数的数字组成的数组或链表。
 
-![](https://user-images.githubusercontent.com/24516169/88752895-8b8ba480-d18d-11ea-9c81-a827c70c9c87.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.5irlba213e00.png)
 
 这样可以根据下标值获取到整个数组或链表，之后继续在数组或链表中查找就可以了。而且，产生冲突的元素一般不会太多。
 
@@ -89,7 +89,7 @@
 
 开放地址法的主要工作方式是寻找空白的单元格来放置冲突的数据项。
 
-![](https://user-images.githubusercontent.com/24516169/88753076-f2a95900-d18d-11ea-8b48-00e07ae50874.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.52qzixg5w4s0.png)
 
 根据探测空白单元格位置方式的不同，可分为三种方法：
 
@@ -124,7 +124,7 @@
 
 - 比如插入 13 时就会发现，连续的单元 3~7 都不允许插入数据，并且在插入的过程中需要经历多次这种情况。二次探测法可以解决该问题。
 
-![](https://user-images.githubusercontent.com/24516169/88754562-99dbbf80-d191-11ea-97bf-3ce61a6e3c2d.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.47l36021j8m0.png)
 
 ##### 二次探测
 
@@ -183,19 +183,19 @@
 
   可以看到，随着装填因子的增大，平均探测长度呈指数形式增长，性能较差。实际情况中，最好的装填因子取决于存储效率和速度之间的平衡，随着装填因子变小，存储效率下降，而速度上升。
 
-  ![](https://user-images.githubusercontent.com/24516169/88767432-3743ed00-d1ac-11ea-9cb3-f78f168a2565.png)
+  ![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.2pcxv1f720o0.png)
 
 - 二次探测和再哈希化的性能
 
   二次探测和再哈希法性能相当，它们的性能比线性探测略好。由下图可知，随着装填因子的变大，平均探测长度呈指数形式增长，需要探测的次数也呈指数形式增长，性能不高。
 
-  ![](https://user-images.githubusercontent.com/24516169/88767440-3ad77400-d1ac-11ea-8ca2-7146e21a35a3.png)
+  ![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.f06tizypf6g.png)
 
 - 链地址法的性能
 
   可以看到随着装填因子的增加，平均探测长度呈线性增长，较为平缓。在开发中使用链地址法较多，比如 Java 中的 HashMap 中使用的就是链地址法。
 
-  ![](https://user-images.githubusercontent.com/24516169/88767455-3dd26480-d1ac-11ea-9393-b4687a5d87ca.png)
+  ![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.45s3ntwwjia0.png)
 
 ### 哈希函数
 
@@ -210,7 +210,7 @@
 
 霍纳法则：在中国霍纳法则也叫做秦久韶算法，具体算法为：
 
-![](https://user-images.githubusercontent.com/24516169/88768791-272d0d00-d1ae-11ea-8f64-450d82013781.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.4kz61djvvau0.png)
 
 求多项式的值时，首先计算最内层括号内一次多项式的值，然后由内向外逐层计算一次多项式的值。这种算法把求 n 次多项式 f(x)的值就转化为求 n 个一次多项式的值。
 
@@ -239,7 +239,7 @@ Java 中的 HashMap 采用的是链地址法，哈希化采用的是公式为：
 - `put(key, value)` 插入或修改操作。
 - `get(key)` 获取哈希表中特定位置的元素。
 - `remove(key)` 删除哈希表中特定位置的元素。
-- `isEmpty()` 如果哈希表中不包含任何元素，返回 trun，如果哈希表长度大于 0 则返回 false。
+- `isEmpty()` 如果哈希表中不包含任何元素，返回 `trun`，如果哈希表长度大于 0 则返回 `false`。
 - `size()` 返回哈希表包含的元素个数。
 - `resize(value)` 对哈希表进行扩容操作。
 
@@ -279,7 +279,7 @@ console.log(hashFn("abc")); //--> 6
 
 封装的哈希表的数据结构模型：
 
-![](https://user-images.githubusercontent.com/24516169/88771995-a6bcdb00-d1b2-11ea-95cf-e2989b65c76c.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.7h3eahcbrvs0.png)
 
 首先创建哈希表类 HashTable，并添加必要的属性和上面实现的哈希函数，再进行其他方法的实现。
 
@@ -295,9 +295,9 @@ class HashTable {
 
 #### put(key,value)
 
-哈希表的插入和修改操作是同一个函数：因为，当使用者传入一个 `[key，value]` 时，如果原来不存在该 key，那么就是插入操作，如果原来已经存在该 key，那么就是修改操作。
+哈希表的插入和修改操作是同一个函数：因为，当使用者传入一个 `[key, value]` 时，如果原来不存在该 key，那么就是插入操作，如果原来已经存在该 key，那么就是修改操作。
 
-![](https://user-images.githubusercontent.com/24516169/88772561-89d4d780-d1b3-11ea-9152-d9c1dc89f08b.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.2a81gwdznn8k.png)
 
 实现思路：
 
@@ -349,11 +349,11 @@ put(key, value) {
 
 实现思路：
 
-- 首先，根据 key 通过哈希函数获取它在 storage 中对应的索引值 index。
-- 然后，根据索引值获取对应的 bucket。
-- 接着，判断获取到的 bucket 是否为 null，如果为 null，直接返回 null。
-- 随后，线性遍历 bucket 中每一个 key 是否等于传入的 key。如果等于，直接返回对应的 value。
-- 最后，遍历完 bucket 后，仍然没有找到对应的 key，直接 return null 即可。
+- 首先，根据 key 通过哈希函数获取它在 `storage` 中对应的索引值 `index`。
+- 然后，根据索引值获取对应的 `bucket`。
+- 接着，判断获取到的 `bucket` 是否为 `null`，如果为 `null`，直接返回 `null`。
+- 随后，线性遍历 `bucket` 中每一个 `key` 是否等于传入的 `key`。如果等于，直接返回对应的 `value`。
+- 最后，遍历完 `bucket` 后，仍然没有找到对应的 `key`，直接 `return null` 即可。
 
 代码实现
 
@@ -381,11 +381,11 @@ get(key) {
 
 实现思路：
 
-- 首先，根据 key 通过哈希函数获取它在 storage 中对应的索引值 index。
-- 然后，根据索引值获取对应的 bucket。
-- 接着，判断获取到的 bucket 是否为 null，如果为 null，直接返回 null。
-- 随后，线性查找 bucket，寻找对应的数据，并且删除。
-- 最后，依然没有找到，返回 null。
+- 首先，根据 key 通过哈希函数获取它在 `storage` 中对应的索引值 `index`。
+- 然后，根据索引值获取对应的 `bucket`。
+- 接着，判断获取到的 `bucket` 是否为 `null`，如果为 `null`，直接返回 `null`。
+- 随后，线性查找 `bucket`，寻找对应的数据，并且删除。
+- 最后，依然没有找到，返回 `null`。
 
 ```js
 // remove(key) 删除指定 key 的数据
@@ -440,11 +440,11 @@ size() {
 
 - 前面我们在哈希表中使用的是长度为 7 的数组，由于使用的是链地址法，装填因子(loadFactor)可以大于 1，所以这个哈希表可以无限制地插入新数据。
 
-- 但是，随着数据量的增多，storage 中每一个 index 对应的 bucket 数组（链表）就会越来越长，这就会造成哈希表效率的降低。
+- 但是，随着数据量的增多，storage 中每一个 `index` 对应的 `bucket` 数组（链表）就会越来越长，这就会造成哈希表效率的降低。
 
 什么情况下需要扩容？
 
-- 常见的情况是 loadFactor > 0.75 的时候进行扩容。
+- 常见的情况是 `loadFactor > 0.75` 的时候进行扩容。
 
 如何进行扩容？
 
@@ -453,15 +453,15 @@ size() {
 
 实现思路：
 
-- 首先，定义一个变量，比如 oldStorage 指向原来的 storage。
-- 然后，创建一个新的容量更大的数组，让 this.storage 指向它。
-- 最后，将 oldStorage 中的每一个 bucket 中的每一个数据取出来依次添加到 this.storage 指向的新数组中。
+- 首先，定义一个变量，比如 oldStorage 指向原来的 `storage`。
+- 然后，创建一个新的容量更大的数组，让 `this.storage` 指向它。
+- 最后，将 oldStorage 中的每一个 bucket 中的每一个数据取出来依次添加到 `this.storage` 指向的新数组中。
 
-![](https://user-images.githubusercontent.com/24516169/88775673-91967b00-d1b7-11ea-8b12-feb7a656f70e.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.7xrayvjwh2w.png)
 
 ### resize() 的实现
 
-装填因子 = 哈希表中数据 / 哈希表长度，即 loadFactor = count / HashTable.length。
+装填因子 = 哈希表中数据 / 哈希表长度，即 `loadFactor = count / HashTable.length`。
 
 resize 方法，既可以实现哈希表的扩容，也可以实现哈希表容量的压缩。
 
@@ -489,7 +489,7 @@ resize(newLimit) {
 }
 ```
 
-- 通常情况下当装填因子 laodFactor > 0.75 时，对哈希表进行扩容。在哈希表中的添加方法（push 方法）中添加如下代码，判断是否需要调用扩容函数进行扩容。
+- 通常情况下当装填因子 `laodFactor > 0.75` 时，对哈希表进行扩容。在哈希表中的添加方法（push 方法）中添加如下代码，判断是否需要调用扩容函数进行扩容。
 
   ```js
   // 判断哈希表是否要扩容，若装填因子 > 0.75，则扩容
@@ -498,7 +498,7 @@ resize(newLimit) {
   }
   ```
 
-* 当装填因子 laodFactor < 0.25 时，对哈希表容量进行压缩。在哈希表中的删除方法（remove 方法）中添加如下代码，判断是否需要调用扩容函数进行压缩。
+* 当装填因子 `laodFactor < 0.25` 时，对哈希表容量进行压缩。在哈希表中的删除方法（remove 方法）中添加如下代码，判断是否需要调用扩容函数进行压缩。
 
   ```js
   // 根据装填因子的大小，判断是否要进行哈希表压缩
@@ -548,9 +548,9 @@ resize(newLimit) {
 
 实现思路：
 
-2 倍扩容或压缩之后，通过循环调用 isPrime 判断得到的容量是否为质数，不是则+1，直到是为止。比如原长度：7，2 倍扩容后长度为 14，14 不是质数，14 + 1 = 15 不是质数，15 + 1 = 16 不是质数，16 + 1 = 17 是质数，停止循环，由此得到质数 17。
+2 倍扩容或压缩之后，通过循环调用 `isPrime` 判断得到的容量是否为质数，不是则+1，直到是为止。比如原长度：7，2 倍扩容后长度为 14，14 不是质数，`14 + 1 = 15` 不是质数，`15 + 1 = 16` 不是质数，`16 + 1 = 17` 是质数，停止循环，由此得到质数 17。
 
-- 第一步：首先需要为 HashTable 类添加判断质数的 isPrime 方法和获取质数的 getPrime 方法：
+- 第一步：首先需要为 HashTable 类添加判断质数的 `isPrime` 方法和获取质数的 `getPrime` 方法：
 
   ```js
   // getPrime(number) 根据传入的 number 获取最临近的质数
@@ -562,9 +562,9 @@ resize(newLimit) {
   }
   ```
 
-- 修改添加元素的 put 方法和删除元素的 remove 方法中关于数组扩容的相关操作：
+- 修改添加元素的 `put` 方法和删除元素的 `remove` 方法中关于数组扩容的相关操作：
 
-  在 put 方法中添加如下代码：
+  在 `put` 方法中添加如下代码：
 
   ```js
   // 判断哈希表是否要扩容，若装填因子 > 0.75，则扩容
@@ -573,7 +573,7 @@ resize(newLimit) {
   }
   ```
 
-  在 remove 方法中添加如下代码：
+  在 `remove` 方法中添加如下代码：
 
   ```js
   // 根据装填因子的大小，判断是否要进行哈希表压缩
@@ -586,11 +586,10 @@ resize(newLimit) {
 
 ```js
 class HashTable {
-  
   constructor() {
     this.storage = []; // 哈希表存储数据的变量
     this.count = 0; // 当前存放的元素个数
-    this.limit = 7;  // 哈希表长度（初始设为质数 7）
+    this.limit = 7; // 哈希表长度（初始设为质数 7）
 
     // 装填因子(已有个数/总个数)
     this.loadFactor = 0.75;
@@ -607,7 +606,6 @@ class HashTable {
 
   // put(key, value) 往哈希表里添加数据
   put(key, value) {
-
     // 1、根据 key 获取要映射到 storage 里面的 index（通过哈希函数获取）
     const index = hashFn(key, this.limit);
 
@@ -616,14 +614,15 @@ class HashTable {
 
     // 3、判断是否存在 bucket
     if (bucket === undefined) {
-      bucket = [];  // 不存在则创建
+      bucket = []; // 不存在则创建
       this.storage[index] = bucket;
     }
 
     // 4、判断是插入数据操作还是修改数据操作
     for (let i = 0; i < bucket.length; i++) {
       let tuple = bucket[i]; // tuple 的格式：[key, value]
-      if (tuple[0] === key) { // 如果 key 相等，则修改数据
+      if (tuple[0] === key) {
+        // 如果 key 相等，则修改数据
         tuple[1] = value;
         return; // 修改完 tuple 里数据，return 终止，不再往下执行。
       }
@@ -637,12 +636,10 @@ class HashTable {
     if (this.count / this.limit > this.loadFactor) {
       this.resize(this.getPrime(this.limit * 2));
     }
-
   }
 
   // 根据 get(key) 获取 value
   get(key) {
-
     const index = hashFn(key, this.limit);
     const bucket = this.storage[index];
 
@@ -660,7 +657,6 @@ class HashTable {
 
   // remove(key) 删除指定 key 的数据
   remove(key) {
-
     const index = hashFn(key, this.limit);
     const bucket = this.storage[index];
 
@@ -682,9 +678,7 @@ class HashTable {
 
         return tuple;
       }
-
     }
-
   }
 
   isEmpty() {
@@ -697,7 +691,6 @@ class HashTable {
 
   // 重新调整哈希表大小，扩容或压缩
   resize(newLimit) {
-
     // 1、保存旧的 storage 数组内容
     const oldStorage = this.storage;
 
@@ -713,10 +706,8 @@ class HashTable {
           this.put(b[0], b[1]);
         }
       }
-
     }
   }
-
-
 }
 ```
+

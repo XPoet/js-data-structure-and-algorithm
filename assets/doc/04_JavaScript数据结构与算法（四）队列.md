@@ -1,6 +1,6 @@
-## JavaScript 数据结构与算法（四）队列结构
+# JavaScript 数据结构与算法（四）队列
 
-### 认识队列
+## 认识队列
 
 队列（Queue）是一种运算受限的线性表，特点：先进先出。(FIFO：First In First Out)
 
@@ -14,25 +14,25 @@
 - 排队，比如在电影院，商场，甚至是厕所排队。
 - 优先排队的人，优先处理。 (买票、结账、WC)。
 
-![queue](https://user-images.githubusercontent.com/24516169/88038526-e9f6c880-cb78-11ea-859d-1faaaebed3bf.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.5mmiw2kdwbs0.png)
 
-#### 队列图解
+### 队列图解
 
-![queue](https://user-images.githubusercontent.com/24516169/88038782-45c15180-cb79-11ea-8439-bdc7e240d10d.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.mq92bw3am0g.png)
 
-#### 队列在程序中的应用
+### 队列在程序中的应用
 
 - 打印队列：计算机打印多个文件的时候，需要排队打印。
 - 线程队列：当开启多线程时，当新开启的线程所需的资源不足时就先放入线程队列，等待 CPU 处理。
 
-### 队列的实现
+## 队列的实现
 
 队列的实现和栈一样，有两种方案：
 
 - 基于数组实现。
 - 基于链表实现。
 
-#### 队列常见的操作
+### 队列常见的操作
 
 - `enqueue(element)` 向队列尾部添加一个（或多个）新的项。
 - `dequeue()` 移除队列的第一（即排在队列最前面的）项，并返回被移除的元素。
@@ -41,11 +41,10 @@
 - `size()` 返回队列包含的元素个数，与数组的 length 属性类似。
 - `toString()` 将队列中的内容，转成字符串形式。
 
-#### 代码实现
+### 代码实现
 
 ```js
 class Queue {
-
   constructor() {
     this.items = [];
   }
@@ -77,25 +76,25 @@ class Queue {
 
   // toString() 将队列中的元素以字符串形式返回
   toString() {
-    let result = '';
+    let result = "";
     for (let item of this.items) {
-      result += item + ' ';
+      result += item + " ";
     }
     return result;
   }
 }
 ```
 
-#### 测试代码
+### 测试代码
 
 ```js
 const queue = new Queue();
 
 // enqueue() 测试
-queue.enqueue('a');
-queue.enqueue('b');
-queue.enqueue('c');
-queue.enqueue('d');
+queue.enqueue("a");
+queue.enqueue("b");
+queue.enqueue("c");
+queue.enqueue("d");
 console.log(queue.items); //--> ["a", "b", "c", "d"]
 
 // dequeue() 测试
@@ -116,13 +115,13 @@ console.log(queue.size()); //--> 2
 console.log(queue.toString()); //--> c d
 ```
 
-### 队列的应用
+## 队列的应用
 
 使用队列实现小游戏：**击鼓传花**。
 
 分析：传入一组数据集合和设定的数字 number，循环遍历数组内元素，遍历到的元素为指定数字 number 时将该元素删除，直至数组剩下一个元素。
 
-#### 代码实现
+### 代码实现
 
 ```js
 // 利用队列结构的特点实现击鼓传花游戏求解方法的封装
@@ -161,11 +160,11 @@ function passGame(nameList, number) {
 }
 ```
 
-#### 测试代码
+### 测试代码
 
 ```js
 // passGame() 测试
-const names = ['lily', 'lucy', 'tom', 'tony', 'jack'];
+const names = ["lily", "lucy", "tom", "tony", "jack"];
 const targetIndex = passGame(names, 4);
-console.log('击鼓传花', names[targetIndex]); //--> lily
+console.log("击鼓传花", names[targetIndex]); //--> lily
 ```

@@ -22,9 +22,9 @@ ES6 中的 `Set` 就是一个集合类，这里我们重新封装一个 `Set` �
 
 - `add(value)` 向集合添加一个新的项。
 - `remove(value)` 从集合移除一个值。
-- `has(value)` 如果值在集合中，返回 true，否则返回 false。
+- `has(value)` 如果值在集合中，返回 `true`，否则返回` false`。
 - `clear()` 移除集合中的所有项。
-- `size()` 返回集合所包含元素的数量。与数组的 length 属性类似。
+- `size()` 返回集合所包含元素的数量。与数组的 `length` 属性类似。
 - `values()` 返回一个包含集合中所有值的数组。
 - 还有其他的方法，用的不多，这里不做封装。
 
@@ -111,7 +111,7 @@ console.log(set.values()); //--> []
 - 差集：对于给定的两个集合，返回一个包含所有存在于第一个集合且不存在于第二个集合的元素的新集合。
 - 子集：验证一个给定集合是否是另一个集合的子集。
 
-![](https://user-images.githubusercontent.com/24516169/88532735-b1069a00-d037-11ea-9ece-e19b2b8a09e2.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.4utjffapm1w0.png)
 
 #### 并集的实现
 
@@ -197,7 +197,6 @@ subset(otherSet) {
 ```js
 // 集合结构的封装
 export default class Set {
-
   constructor() {
     this.items = {};
   }
@@ -257,7 +256,6 @@ export default class Set {
 
   // intersection() 求两个集合的交集
   intersection(otherSet) {
-
     // 1、创建一个新集合
     let intersectionSet = new Set();
 
@@ -273,7 +271,6 @@ export default class Set {
 
   // difference() 差集
   difference(otherSet) {
-
     // 1、创建一个新集合
     let differenceSet = new Set();
 
@@ -289,7 +286,6 @@ export default class Set {
 
   // subset() 子集
   subset(otherSet) {
-
     // 从当前集合中取出每一个 value，判断是否在 otherSet 集合中存在，有不存在的返回 false
     // 遍历完所有的，返回 true
     for (let value of this.values()) {
@@ -299,6 +295,5 @@ export default class Set {
     }
     return true;
   }
-
 }
 ```

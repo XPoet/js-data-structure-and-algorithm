@@ -56,7 +56,7 @@
 ### 常见的数据结构
 
 - 数组（Aarray）
-- 栈（Queue）
+- 栈（Stack）
 - 链表（Linked List）
 - 图（Graph）
 - 散列表（Hash）

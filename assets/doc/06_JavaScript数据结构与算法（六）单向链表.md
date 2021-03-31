@@ -1,12 +1,12 @@
-## JavaScript 数据结构与算法（六）单向链表
+# JavaScript 数据结构与算法（六）单向链表
 
-### 认识链表
+## 认识链表
 
-#### 链表和数组
+### 链表和数组
 
 链表和数组一样，可以用于存储一系列的元素，但是链表和数组的实现机制完全不同。
 
-##### 数组
+#### 数组
 
 - 存储多个元素，数组（或列表）可能是最常用的数据结构。
 
@@ -18,7 +18,7 @@
 
   在数组开头或中间位置插入数据的成本很高，需要进行大量元素的位移。
 
-##### 链表
+#### 链表
 
 - 存储多个元素，另外一个选择就是使用链表。
 
@@ -42,27 +42,27 @@
 
   虽然可以轻松地到达下一个节点，但是回到前一个节点是很难的。
 
-### 单向链表
+## 单向链表
 
 单向链表类似于火车，有一个火车头，火车头会连接一个节点，节点上有乘客，并且这个节点会连接下一个节点，以此类推。
 
 - 链表的火车结构
 
-  ![链表的火车结构](https://user-images.githubusercontent.com/24516169/88268829-a1b8e100-cd05-11ea-91d9-1c4322783a3d.png)
+  ![链表的火车结构](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.27xtn3c52zwg.png)
 
 - 链表的数据结构
 
   head 属性指向链表的第一个节点。  
-  链表中的最后一个节点指向 null。
-  当链表中一个节点也没有的时候，head 直接指向 null。
+  链表中的最后一个节点指向 `null`。
+  当链表中一个节点也没有的时候，head 直接指向 `null`。
 
-  ![链表的数据结构](https://user-images.githubusercontent.com/24516169/88271130-50aaec00-cd09-11ea-8910-eaf4f4509c6d.png)
+  ![链表的数据结构](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.37j1by46a120.png)
 
 - 给火车加上数据后的结构
 
-  ![给火车加上数据后的结构](https://user-images.githubusercontent.com/24516169/88268878-b09f9380-cd05-11ea-9fc7-f2e96fe8c764.png)
+  ![给火车加上数据后的结构](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.664djiie2t80.png)
 
-#### 链表中的常见操作
+### 链表中的常见操作
 
 - `append(element)` 向链表尾部添加一个新的项。
 - `insert(position, element)` 向链表的特定位置插入一个新的项。
@@ -75,9 +75,9 @@
 - `size()` 返回链表包含的元素个数，与数组的 length 属性类似。
 - `toString()` 由于链表项使用了 Node 类，就需要重写继承自 JavaScript 对象默认的 toString 方法，让其只输出元素的值。
 
-#### 单向链表的封装
+### 单向链表的封装
 
-##### 创建单向链表类
+#### 创建单向链表类
 
 先创建单向链表类 LinkedList，添加基本属性，再逐步实现单向链表的常用方法。
 
@@ -100,9 +100,9 @@ class LinkedList {
 }
 ```
 
-##### 实现 append() 方法
+#### 实现 append() 方法
 
-###### 代码实现
+##### 代码实现
 
 ```js
 // append() 往链表尾部追加数据
@@ -137,17 +137,17 @@ append(data) {
 }
 ```
 
-###### 过程图解
+##### 过程图解
 
-- 首先让 currentNode 指向第一个节点。
+- 首先让 `currentNode` 指向第一个节点。
 
-  ![](https://user-images.githubusercontent.com/24516169/88273783-4854b000-cd0d-11ea-8840-176f2e8cc219.png)
+  ![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.5iskrdf4nu40.png)
 
-- 通过 while 循环使 currentNode 指向最后一个节点，最后通过 currentNode.next = newNode，让最后一个节点指向新节点 newNode。
+- 通过 `while` 循环使 `currentNode` 指向最后一个节点，最后通过 `currentNode.next = newNode`，让最后一个节点指向新节点 `newNode`。
 
-  ![](https://user-images.githubusercontent.com/24516169/88273806-50aceb00-cd0d-11ea-95f7-c1583464e123.png)
+  ![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.4mw3bx5g80m0.png)
 
-###### 代码测试
+##### 代码测试
 
 ```js
 const linkedList = new LinkedList();
@@ -158,11 +158,11 @@ linkedList.append("C");
 console.log(linkedList);
 ```
 
-![](https://user-images.githubusercontent.com/24516169/88274253-f9f3e100-cd0d-11ea-970d-e39e8e0f3caa.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.6kx4qbq8e5c.png)
 
-##### 实现 toString() 方法
+#### 实现 toString() 方法
 
-###### 代码实现
+##### 代码实现
 
 ```js
 toString() {
@@ -179,16 +179,16 @@ toString() {
 }
 ```
 
-###### 代码测试
+##### 代码测试
 
 ```js
 // 测试 toString 方法
 console.log(linkedList.toString()); //--> AA BB CC
 ```
 
-##### 实现 insert() 方法
+#### 实现 insert() 方法
 
-###### 代码实现
+##### 代码实现
 
 ```js
 // insert() 在指定位置（position）插入节点
@@ -235,7 +235,7 @@ insert(position, data) {
 }
 ```
 
-###### 代码测试
+##### 代码测试
 
 ```js
 // 测试 insert 方法
@@ -244,11 +244,11 @@ linkedList.insert(2, "456");
 console.log(linkedList.toString()); //--> 123 AA 456 BB CC
 ```
 
-##### 实现 getData() 方法
+#### 实现 getData() 方法
 
 获取指定位置（position）的 data。
 
-###### 代码实现
+##### 代码实现
 
 ```js
 getData(position) {
@@ -267,7 +267,7 @@ getData(position) {
 }
 ```
 
-###### 代码测试
+##### 代码测试
 
 ```js
 // 测试 getData 方法
@@ -275,11 +275,11 @@ console.log(linkedList.getData(0)); //--> 123
 console.log(linkedList.getData(1)); //--> AA
 ```
 
-##### 实现 indexOf() 方法
+#### 实现 indexOf() 方法
 
 indexOf(data) 返回指定 data 的 index，如果没有，返回 -1。
 
-###### 代码实现
+##### 代码实现
 
 ```js
 indexOf(data) {
@@ -299,7 +299,7 @@ indexOf(data) {
 }
 ```
 
-###### 代码测试
+##### 代码测试
 
 ```js
 // 测试 indexOf 方法
@@ -307,11 +307,11 @@ console.log(linkedList.indexOf("AA")); //--> 1
 console.log(linkedList.indexOf("ABC")); //--> -1
 ```
 
-##### 实现 update() 方法
+#### 实现 update() 方法
 
 update(position, data) 修改指定位置节点的 data。
 
-###### 代码实现
+##### 代码实现
 
 ```js
 update(position, data) {
@@ -333,7 +333,7 @@ update(position, data) {
 }
 ```
 
-###### 代码测试
+##### 代码测试
 
 ```js
 // 测试 update 方法
@@ -343,11 +343,11 @@ linkedList.update(1, "54321");
 console.log(linkedList.toString()); //--> 12345 54321 456 BB CC
 ```
 
-##### 实现 removeAt() 方法
+#### 实现 removeAt() 方法
 
 removeAt(position) 删除指定位置的节点。
 
-###### 代码实现
+##### 代码实现
 
 ```js
 removeAt(position) {
@@ -383,7 +383,7 @@ removeAt(position) {
 }
 ```
 
-###### 代码测试
+##### 代码测试
 
 ```js
 // 测试 removeAt 方法
@@ -391,11 +391,11 @@ linkedList.removeAt(3);
 console.log(linkedList.toString()); //--> 12345 54321 456 CC
 ```
 
-##### 实现 remove() 方法
+#### 实现 remove() 方法
 
 remove(data) 删除指定 data 所在的节点。
 
-###### 代码实现
+##### 代码实现
 
 ```js
 remove(data) {
@@ -403,7 +403,7 @@ remove(data) {
 }
 ```
 
-###### 代码测试
+##### 代码测试
 
 ```js
 // 测试 remove 方法
@@ -411,11 +411,11 @@ linkedList.remove("CC");
 console.log(linkedList.toString()); //--> 12345 54321 456
 ```
 
-##### 实现 isEmpty() 方法
+#### 实现 isEmpty() 方法
 
 isEmpty() 判断链表是否为空。
 
-###### 代码实现
+##### 代码实现
 
 ```js
 isEmpty() {
@@ -423,18 +423,18 @@ isEmpty() {
 }
 ```
 
-###### 代码测试
+##### 代码测试
 
 ```js
 // 测试 isEmpty 方法
 console.log(linkedList.isEmpty()); //--> false
 ```
 
-##### 实现 size() 方法
+#### 实现 size() 方法
 
 size() 获取链表的长度。
 
-###### 代码实现
+##### 代码实现
 
 ```js
 size() {
@@ -442,14 +442,14 @@ size() {
 }
 ```
 
-###### 代码测试
+##### 代码测试
 
 ```js
 // 测试 size 方法
 console.log(linkedList.size()); //--> 3
 ```
 
-##### 完整实现
+#### 完整实现
 
 ```js
 class LinkedList {
@@ -657,3 +657,4 @@ class LinkedList {
   }
 }
 ```
+

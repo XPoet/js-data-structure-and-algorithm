@@ -6,7 +6,7 @@
 
 #### 真实的树：
 
-![](https://user-images.githubusercontent.com/24516169/89281453-b2117a00-d67c-11ea-946c-14d1c33af6ce.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.6pnzzxbinjs0.png)
 
 #### 树的特点：
 
@@ -16,7 +16,7 @@
 
 现实生活中很多结构都是树的抽象，模拟的树结构相当于旋转 `180°` 的树。
 
-![](https://user-images.githubusercontent.com/24516169/89281620-ed13ad80-d67c-11ea-83d3-658cf8a90fa1.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.4mrygbtnd6w0.png)
 
 #### 树结构对比于数组/链表/哈希表有哪些优势呢？
 
@@ -47,11 +47,11 @@
 
 - 对于任意一棵非空树（n > 0），它具备以下性质：
   - 数中有一个称为根（Root）的特殊节点，用 **r** 表示；
-  - 其余节点可分为 m（m > 0）个互不相交的有限集合 T~1~，T~2~，...，T~m~，其中每个集合本身又是一棵树，称为原来树的子树（SubTree）。
+  - 其余节点可分为 m（m > 0）个互不相交的有限集合 T1，T2，...，Tm，其中每个集合本身又是一棵树，称为原来树的子树（SubTree）。
 
 #### 树的常用术语：
 
-![](https://user-images.githubusercontent.com/24516169/89282702-7ecfea80-d67e-11ea-9dbb-ff1ec3bd3707.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.3t0ypfn5leo0.png)
 
 - 节点的度（Degree）：节点的子树个数，比如节点 B 的度为 2；
 - 树的度：树的所有节点中最大的度数，如上图树的度为 2；
@@ -67,7 +67,7 @@
 
 ##### 最普通的表示方法：
 
-![](https://user-images.githubusercontent.com/24516169/89384924-6ec51300-d731-11ea-9659-fc6d3d168499.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.4v9sayu9zu60.png)
 
 如图，树结构的组成方式类似于链表，都是由一个个节点连接构成。不过，根据每个父节点子节点数量的不同，每一个父节点需要的引用数量也不同。比如节点 A 需要 3 个引用，分别指向子节点 B，C，D；B 节点需要 2 个引用，分别指向子节点 E 和 F；K 节点由于没有子节点，所以不需要引用。
 
@@ -75,7 +75,7 @@
 
 ##### 儿子-兄弟表示法：
 
-![](https://user-images.githubusercontent.com/24516169/89385103-afbd2780-d731-11ea-8236-2f4db1a2a4cf.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.3o34yy6h0420.png)
 
 这种表示方法可以完整地记录每个节点的数据，比如：
 
@@ -111,158 +111,10 @@ Node{
 
 以下为儿子-兄弟表示法组成的树结构：
 
-![](https://user-images.githubusercontent.com/24516169/89385393-1e01ea00-d732-11ea-92d7-21d27ace4d25.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.6tucreh71ok0.png)
 
 将其顺时针旋转 45° 之后：
 
-![](https://user-images.githubusercontent.com/24516169/89385455-3a9e2200-d732-11ea-910e-396b4fe99b0b.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.4blmsiyhevg0.png)
 
 这样就成为了一棵二叉树，由此我们可以得出结论：任何树都可以通过二叉树进行模拟。但是这样父节点不是变了吗？其实，父节点的设置只是为了方便指向子节点，在代码实现中谁是父节点并没有关系，只要能正确找到对应节点即可。
-
-### 二叉树
-
-#### 二叉树的概念
-
-如果树中的每一个节点最多只能由两个子节点，这样的树就称为二叉树；
-
-#### 二叉树的组成
-
-- 二叉树可以为空，也就是没有节点；
-- 若二叉树不为空，则它由根节点和称为其左子树 TL 和右子树 TR 的两个不相交的二叉树组成；
-
-#### 二叉树的五种形态
-
-![](https://user-images.githubusercontent.com/24516169/89387159-aed9c500-d734-11ea-8838-8a72d61070e5.png)
-
-上图分别表示：空的二叉树、只有一个节点的二叉树、只有左子树 TL 的二叉树、只有右子树 TR 的二叉树和有左右两个子树的二叉树。
-
-#### 二叉树的特性
-
-- 一个二叉树的第 i 层的最大节点树为：2^(i-1)^，i >= 1；
-- 深度为 k 的二叉树的最大节点总数为：2^k^ - 1 ，k >= 1；
-- 对任何非空二叉树，若 n~0~ 表示叶子节点的个数，n~2~表示度为 2 的非叶子节点个数，那么两者满足关系：n~0~ = n~2~ + 1；如下图所示：H，E，I，J，G 为叶子节点，总数为 5；A，B，C，F 为度为 2 的非叶子节点，总数为 4；满足 n~0~ = n~2~ + 1 的规律。
-
-![](https://user-images.githubusercontent.com/24516169/89387356-f2ccca00-d734-11ea-9b04-ae65080c701c.png)
-
-#### 特殊的二叉树
-
-##### 完美二叉树
-
-完美二叉树（Perfect Binary Tree）也成为满二叉树（Full Binary Tree），在二叉树中，除了最下一层的叶子节点外，每层节点都有 2 个子节点，这就构成了完美二叉树。
-
-![](https://user-images.githubusercontent.com/24516169/89387498-214aa500-d735-11ea-9766-255b3197e69d.png)
-
-##### 完全二叉树
-
-完全二叉树（Complete Binary Tree）:
-
-- 除了二叉树最后一层外，其他各层的节点数都达到了最大值；
-- 并且，最后一层的叶子节点从左向右是连续存在，只缺失右侧若干叶子节点；
-- 完美二叉树是特殊的完全二叉树；
-
-![](https://user-images.githubusercontent.com/24516169/89387606-522ada00-d735-11ea-84af-18530ee0bd77.png)
-
-在上图中，由于 H 缺失了右子节点，所以它不是完全二叉树。
-
-#### 二叉树的数据存储
-
-常见的二叉树存储方式为数组和链表：
-
-##### 使用数组
-
-- 完全二叉树：按从上到下，从左到右的方式存储数据。
-
-![](https://user-images.githubusercontent.com/24516169/89388887-388a9200-d737-11ea-8608-321fb195fbc2.png)
-
-| 节点 |  A  |  B  |  C  |  D  |  E  |  F  |  G  |  H  |  I  |
-| ---- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| 序号 |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |
-
-使用数组存储时，取数据的时候也十分方便：左子节点的序号等于父节点序号 _ 2，右子节点的序号等于父节点序号 _ 2 + 1 。
-
-- 非完全二叉树：非完全二叉树需要转换成完全二叉树才能按照上面的方案存储，这样会浪费很大的存储空间。
-
-![](https://user-images.githubusercontent.com/24516169/89389454-0168b080-d738-11ea-881f-299c84436397.png)
-
-| 节点 |  A  |  B  |  C  |  ^  |  ^  |  F  |  ^  |  ^  |  ^  |  ^  |  ^  |  ^  |  M  |
-| ---- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| 序号 |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  | 11  | 12  | 13  |
-
-##### 使用链表
-
-二叉树最常见的存储方式为链表：每一个节点封装成一个 Node，Node 中包含存储的数据、左节点的引用和右节点的引用。
-
-![](https://user-images.githubusercontent.com/24516169/89389914-a08da800-d738-11ea-8597-2da99132edf3.png)
-
-### 二叉搜索树
-
-二叉搜索树（BST，Binary Search Tree），也称为二叉排序树和二叉查找树。
-
-二叉搜索树是一棵二叉树，可以为空。
-
-如果不为空，则满足以下性质：
-
-- 条件 1：非空左子树的所有键值小于其根节点的键值。比如三中节点 6 的所有非空左子树的键值都小于 6；
-- 条件 2：非空右子树的所有键值大于其根节点的键值；比如三中节点 6 的所有非空右子树的键值都大于 6；
-- 条件 3：左、右子树本身也都是二叉搜索树；
-
-![](https://user-images.githubusercontent.com/24516169/89390195-f8c4aa00-d738-11ea-92c7-789e7bd7fd8b.png)
-
-如上图所示，树二和树三符合 3 个条件属于二叉树，树一不满足条件 3 所以不是二叉树。
-
-总结：二叉搜索树的特点主要是较小的值总是保存在左节点上，相对较大的值总是保存在右节点上。这种特点使得二叉搜索树的查询效率非常高，这也就是二叉搜索树中“搜索”的来源。
-
-#### 二叉搜索树应用举例
-
-下面是一个二叉搜索树：
-
-![](https://user-images.githubusercontent.com/24516169/89390510-67a20300-d739-11ea-8bb3-1f1cdf0e5aa9.png)
-
-若想在其中查找数据 10，只需要查找 4 次，查找效率非常高。
-
-- 第 1 次：将 10 与根节点 9 进行比较，由于 10 > 9，所以 10 下一步与根节点 9 的右子节点 13 比较；
-- 第 2 次：由于 10 < 13，所以 10 下一步与父节点 13 的左子节点 11 比较；
-- 第 3 次：由于 10 < 11，所以 10 下一步与父节点 11 的左子节点 10 比较；
-- 第 4 次：由于 10 = 10，最终查找到数据 10 。
-
-![](https://user-images.githubusercontent.com/24516169/89390596-87d1c200-d739-11ea-9438-2061622f2e81.png)
-
-同样是 15 个数据，在排序好的数组中查询数据 10，需要查询 10 次：
-
-![](https://user-images.githubusercontent.com/24516169/89390662-a0da7300-d739-11ea-8707-296660ed838a.png)
-
-其实：如果是排序好的数组，可以通过二分查找：第一次找9，第二次找13，第三次找15...。我们发现如果把每次二分的数据拿出来以树的形式表示的话就是二叉搜索树。这就是数组二分法查找效率之所以高的原因。
-
-
-#### 二叉搜索树的封装
-
-二叉搜索树有四个最基本的属性：指向节点的根（root），节点中的键（key）、左指针（right）、右指针（right）。
-
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.6hwur70i0tk0.png)
-
-所以，二叉搜索树中除了定义root属性外，还应定义一个节点内部类，里面包含每个节点中的left、right和key三个属性：
-
-```js
-// 节点类
-class Node {
-
-  constructor(key) {
-    this.key = key;
-    this.left = null;
-    this.right = null;
-  }
-
-}
-
-```
-
-二叉搜索树的常见操作：
-
-- insert（key）：向树中插入一个新的键；
-- search（key）：在树中查找一个键，如果节点存在，则返回true；如果不存在，则返回false；
-- inOrderTraverse：通过中序遍历方式遍历所有节点；
-- preOrderTraverse：通过先序遍历方式遍历所有节点；
-- postOrderTraverse：通过后序遍历方式遍历所有节点；
-- min：返回树中最小的值/键；
-- max：返回树中最大的值/键；
-- remove（key）：从树中移除某个键；

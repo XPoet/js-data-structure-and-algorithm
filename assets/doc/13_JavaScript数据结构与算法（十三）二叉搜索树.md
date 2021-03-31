@@ -1,8 +1,49 @@
-# 二叉搜索树的封装
+# JavaScript 数据结构与算法（十三）二叉搜索树
+
+## 二叉搜索树
+
+二叉搜索树（BST，Binary Search Tree），也称为二叉排序树和二叉查找树。
+
+二叉搜索树是一棵二叉树，可以为空。
+
+如果不为空，则满足以下性质：
+
+- 条件 1：非空左子树的所有键值小于其根节点的键值。比如三中节点 6 的所有非空左子树的键值都小于 6；
+- 条件 2：非空右子树的所有键值大于其根节点的键值；比如三中节点 6 的所有非空右子树的键值都大于 6；
+- 条件 3：左、右子树本身也都是二叉搜索树；
+
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.1lhxcdph4vpc.png)
+
+如上图所示，树二和树三符合 3 个条件属于二叉树，树一不满足条件 3 所以不是二叉树。
+
+总结：二叉搜索树的特点主要是较小的值总是保存在左节点上，相对较大的值总是保存在右节点上。这种特点使得二叉搜索树的查询效率非常高，这也就是二叉搜索树中“搜索”的来源。
+
+## 二叉搜索树应用举例
+
+下面是一个二叉搜索树：
+
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.3l21fsg6qbc0.png)
+
+若想在其中查找数据 10，只需要查找 4 次，查找效率非常高。
+
+- 第 1 次：将 10 与根节点 9 进行比较，由于 10 > 9，所以 10 下一步与根节点 9 的右子节点 13 比较；
+- 第 2 次：由于 10 < 13，所以 10 下一步与父节点 13 的左子节点 11 比较；
+- 第 3 次：由于 10 < 11，所以 10 下一步与父节点 11 的左子节点 10 比较；
+- 第 4 次：由于 10 = 10，最终查找到数据 10 。
+
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.5x9xyvmbxy80.png)
+
+同样是 15 个数据，在排序好的数组中查询数据 10，需要查询 10 次：
+
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.2gqz4t2jekw0.png)
+
+其实：如果是排序好的数组，可以通过二分查找：第一次找 9，第二次找 13，第三次找 15...。我们发现如果把每次二分的数据拿出来以树的形式表示的话就是二叉搜索树。这就是数组二分法查找效率之所以高的原因。
+
+## 二叉搜索树的封装
 
 二叉搜索树有四个最基本的属性：指向节点的根（root），节点中的键（key）、左指针（right）、右指针（right）。
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.6hwur70i0tk0.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.5vdbb5to1n40.png)
 
 所以，二叉搜索树中除了定义 root 属性外，还应定义一个节点内部类，里面包含每个节点中的 left、right 和 key 三个属性。
 
@@ -17,7 +58,7 @@ class Node {
 }
 ```
 
-## 二叉搜索树的常见操作：
+### 二叉搜索树的常见操作：
 
 - `insert(key)` 向树中插入一个新的键。
 - `search(key)` 在树中查找一个键，如果节点存在，则返回 true；如果不存在，则返回 `false`。
@@ -28,7 +69,7 @@ class Node {
 - `max` 返回树中最大的值/键。
 - `remove(key)` 从树中移除某个键。
 
-### 插入数据
+#### 插入数据
 
 实现思路：
 
@@ -94,7 +135,7 @@ insertNode(root, node) {
 }
 ```
 
-### 遍历数据
+#### 遍历数据
 
 这里所说的树的遍历不仅仅针对二叉搜索树，而是适用于所有的二叉树。由于树结构不是线性结构，所以遍历方式有多种选择，常见的三种二叉树遍历方式为：
 
@@ -104,7 +145,7 @@ insertNode(root, node) {
 
 还有层序遍历，使用较少。
 
-#### 先序遍历
+##### 先序遍历
 
 先序遍历的过程为：
 
@@ -112,7 +153,7 @@ insertNode(root, node) {
 然后，遍历其左子树；
 最后，遍历其右子树；
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.1p2834z59wlc.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.69ooahvtbbo0.png)
 
 如上图所示，二叉树的节点遍历顺序为：A -> B -> D -> H -> I -> E -> C -> F -> G。
 
@@ -134,7 +175,7 @@ preorderTraversalNode(node, result) {
 }
 ```
 
-#### 中序遍历
+##### 中序遍历
 
 实现思路：与先序遍历原理相同，只不过是遍历的顺序不一样了。
 
@@ -144,7 +185,7 @@ preorderTraversalNode(node, result) {
 
 过程图解：
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.4xyrtyb08v80.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.762l4sxdr7o0.png)
 
 输出节点的顺序应为：3 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 18 -> 20 -> 25 。
 
@@ -166,7 +207,7 @@ inorderTraversalNode(node, result) {
 }
 ```
 
-#### 后序遍历
+##### 后序遍历
 
 实现思路：与先序遍历原理相同，只不过是遍历的顺序不一样了。
 
@@ -176,7 +217,7 @@ inorderTraversalNode(node, result) {
 
 过程图解：
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.67jks5h348g0.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.5lqmen4jds80.png)
 
 输出节点的顺序应为：3 -> 6 -> 5 -> 8 -> 10 -> 9 -> 7 -> 12 -> 14 -> 13 -> 18 -> 25 -> 20 -> 15 -> 11 。
 
@@ -198,17 +239,17 @@ postorderTraversalNode(node, result) {
 }
 ```
 
-#### 总结
+##### 总结
 
 以遍历根（父）节点的顺序来区分三种遍历方式。比如：先序遍历先遍历根节点、中序遍历第二遍历根节点、后续遍历最后遍历根节点。
 
-### 查找数据
+#### 查找数据
 
-#### 查找最大值或最小值
+##### 查找最大值或最小值
 
 在二叉搜索树中查找最值非常简单，最小值在二叉搜索树的最左边，最大值在二叉搜索树的最右边。只需要一直向左/右查找就能得到最值，如下图所示：
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.2o6ejkr6m4e0.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.3h3yfhyqgi00.png)
 
 代码实现：
 
@@ -234,7 +275,7 @@ max() {
 }
 ```
 
-#### 查找特定值
+##### 查找特定值
 
 查找二叉搜索树当中的特定值效率也非常高。只需要从根节点开始将需要查找节点的 key 值与之比较，若 node.key < root 则向左查找，若 node.key > root 就向右查找，直到找到或查找到 null 为止。这里可以使用递归实现，也可以采用循环来实现。
 
@@ -278,7 +319,7 @@ search2(key) {
 }
 ```
 
-### 删除数据
+#### 删除数据
 
 实现思路：
 
@@ -318,7 +359,7 @@ while (currentNode.key !== key) {
 - 删除的是只有一个子节点的节点；
 - 删除的是有两个子节点的节点；
 
-#### 删除的是叶子节点
+##### 删除的是叶子节点
 
 删除的是叶子节点分两种情况：
 
@@ -326,13 +367,13 @@ while (currentNode.key !== key) {
 
   当该叶子节点为根节点时，如下图所示，此时 current == this.root，直接通过：this.root = null，删除根节点。
 
-  ![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.18kl2ddg05kw.png)
+  ![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.1j9353rx9b7k.png)
 
 - 叶子节点不为根节点
 
   当该叶子节点不为根节点时也有两种情况，如下图所示
 
-  ![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.3mb8g9a6diy0.png)
+  ![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.3r99a6ocvug0.png)
 
   若 current = 8，可以通过：parent.left = null，删除节点 8；
 
@@ -355,7 +396,7 @@ while (currentNode.key !== key) {
   }
   ```
 
-#### 删除的是只有一个子节点的节点
+##### 删除的是只有一个子节点的节点
 
 有六种情况：
 
@@ -367,7 +408,7 @@ while (currentNode.key !== key) {
 
 - 情况 3：current 为父节点 parent 的右子节点（isLeftChild == false），如节点 9，此时通过：parent.right = current.left，删除节点 9；
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.4zc06mlt2e00.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.27lwqd0qfnpc.png)
 
 当 current 存在右子节点时（current.left = null）：
 
@@ -377,7 +418,7 @@ while (currentNode.key !== key) {
 
 - 情况 6：current 为父节点 parent 的右子节点（isLeftChild == false），如节点 9，此时通过：parent.right = current.right，删除节点 9；
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.23k6katp0f5s.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.3edzg72fx7y0.png)
 
 代码实现：
 
@@ -412,7 +453,7 @@ while (currentNode.key !== key) {
   }
 ```
 
-#### 删除的是有两个子节点的节点
+##### 删除的是有两个子节点的节点
 
 这种情况十分复杂，首先依据以下二叉搜索树，讨论这样的问题：
 
@@ -425,7 +466,7 @@ while (currentNode.key !== key) {
 - 方式 1：从节点 9 的左子树中选择一合适的节点替代节点 9，可知节点 8 符合要求；
 - 方式 2：从节点 9 的右子树中选择一合适的节点替代节点 9，可知节点 10 符合要求；
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.1by38b4350v4.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.73rduwimfvo0.png)
 
 **删除节点 7**
 
@@ -434,7 +475,7 @@ while (currentNode.key !== key) {
 - 方式 1：从节点 7 的左子树中选择一合适的节点替代节点 7，可知节点 5 符合要求；
 - 方式 2：从节点 7 的右子树中选择一合适的节点替代节点 7，可知节点 8 符合要求；
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.58f3ovxac100.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.2h9hjd5bhwo0.png)
 
 **删除节点 15**
 
@@ -443,7 +484,7 @@ while (currentNode.key !== key) {
 - 方式 1：从节点 15 的左子树中选择一合适的节点替代节点 15，可知节点 14 符合要求；
 - 方式 2：从节点 15 的右子树中选择一合适的节点替代节点 15，可知节点 18 符合要求；
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.2a3phv4h6ow0.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.4f5tzwdvueq0.png)
 
 相信你已经发现其中的规律了！
 
@@ -454,14 +495,14 @@ while (currentNode.key !== key) {
 - current 左子树中比 current 小一点点的节点，即 current 左子树中的最大值；
 - current 右子树中比 current 大一点点的节点，即 current 右子树中的最小值；
 
-##### 前驱&后继
+###### 前驱&后继
 
 在二叉搜索树中，这两个特殊的节点有特殊的名字：
 
 - 比 current 小一点点的节点，称为 current 节点的前驱。比如下图中的节点 5 就是节点 7 的前驱；
 - 比 current 大一点点的节点，称为 current 节点的后继。比如下图中的节点 8 就是节点 7 的后继；
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.47qp7idxveq0.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.71vg0g9z7io0.png)
 
 查找需要被删除的节点 current 的后继时，需要在 current 的右子树中查找最小值，即在 current 的右子树中一直向左遍历查找；
 
@@ -516,7 +557,7 @@ getSuccessor(delNode) {
 }
 ```
 
-#### 完整实现
+##### 完整实现
 
 ```js
 // 删除节点
@@ -635,15 +676,15 @@ getSuccessor(delNode) {
 }
 ```
 
-# 平衡树
+## 平衡树
 
 二叉搜索树的缺陷：当插入的数据是有序的数据，就会造成二叉搜索树的深度过大。比如原二叉搜索树由 11 7 15 组成，如下图所示：
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.6xy1t7bijis0.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.1nkd51rg5dz4.png)
 
 当插入一组有序数据：6 5 4 3 2 就会变成深度过大的搜索二叉树，会严重影响二叉搜索树的性能。
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.5xvlspn12p80.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.154bnlgtd5z4.png)
 
 非平衡树
 
@@ -663,3 +704,4 @@ getSuccessor(delNode) {
 
 - AVL 树：是最早的一种平衡树，它通过在每个节点多存储一个额外的数据来保持树的平衡。由于 AVL 树是平衡树，所以它的时间复杂度也是 O(log n)。但是它的整体效率不如红黑树，开发中比较少用。
 - 红黑树：同样通过一些特性来保持树的平衡，时间复杂度也是 O(log n)。进行插入/删除等操作时，性能优于 AVL 树，所以平衡树的应用基本都是红黑树。
+
