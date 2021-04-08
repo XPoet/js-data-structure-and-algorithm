@@ -457,7 +457,7 @@ while (currentNode.key !== key) {
 
 这种情况十分复杂，首先依据以下二叉搜索树，讨论这样的问题：
 
-![](https://cdn.jsdelivr.net/gh/XPoet/image-hosting/JavaScript数据结构与算法/image.65kl1t7kt6g0.png)
+![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.4g0geeyv6ya0.png)
 
 **删除节点 9**
 
