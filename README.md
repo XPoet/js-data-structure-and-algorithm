@@ -8,8 +8,15 @@
 
 > 重点要掌握数据结构与算法的思想和原理，使用哪种编程语言区别不大。
 
-**访问作者博客 [《JavaScript 数据结构与算法》](https://xpoet.cn/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%93%E8%BE%91%EF%BC%89/) 可获取更好的阅读体验。**  
-**[传送门 🏃](https://xpoet.cn/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%93%E8%BE%91%EF%BC%89/)**
+## 交流群
+
+- 扫描下方二维码，加入微信交流群，欢迎小伙伴们畅所欲言，包括但不限于前端技术问题，大家一起成长~
+
+  <img src="https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/FE-Cheerleaders/Group-QR-Code.png" width="35%" />
+
+- 如果上面的二维码失效，可关注公众号《前端鼓励师》，添加作者微信，再由作者拉你进群~
+
+  <img src="https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/FE-Cheerleaders/FEC-Card.76dbi8n1bkk0.png" width="80%" />
 
 ## 文档目录
 
