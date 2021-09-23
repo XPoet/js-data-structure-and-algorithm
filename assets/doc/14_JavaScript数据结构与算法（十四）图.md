@@ -379,7 +379,7 @@ _initializeColor() {
 深度优先搜索的思路：
 
 - 深度优先搜索算法将会从第一个指定的顶点开始遍历图，沿着路径知道这条路径最后被访问了。
-- 接着原路回退并探索吓一条路径。
+- 接着原路回退并探索下一条路径。
 - 图解 DFS
   ![image](https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/JavaScript-数据结构与算法/image.1bjimck65r8g.png)
 
