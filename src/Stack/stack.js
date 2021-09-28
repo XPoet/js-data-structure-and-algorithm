@@ -12,11 +12,13 @@ export default class Stack {
 
   // pop() 出栈操作，从栈中取出元素，并返回取出的那个元素
   pop() {
+    if(this.isEmpty()) throw new Error('栈空了');
     return this.items.pop();
   }
 
   // peek() 查看栈顶元素
   peek() {
+    if(this.isEmpty()) throw new Error('栈空了');
     return this.items[this.items.length - 1];
   }
 
