@@ -50,9 +50,9 @@
 
 ### 删除元素
 
-- 删除数组最后的元素 `array.pop(item)`
-- 删除数组首位的元素 `array.shift(item)`
-- 删除指定索引位置的元素 `array.splice(start, number)`
+- 删除数组最后的元素 `array.pop()`
+- 删除数组首位的元素 `array.shift()`
+- 删除指定索引位置的元素 `array.splice(start, deleteCount)`
   例如：
   ```js
   let myArray2 = [1, 2, 3, 4, 5];
