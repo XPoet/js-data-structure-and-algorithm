@@ -1,0 +1,29 @@
+{
+  "name": "js-data-structure-and-algorithm",
+  "version": "0.0.1",
+  "description": "JavaScript 数据结构与算法",
+  "author": "XPoet <i@xpoet.cn>",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev src --open",
+    "preview": "vitepress preview src",
+    "build": "vitepress build src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XPoet/js-data-structure-and-algorithm.git"
+  },
+  "keywords": [
+    "javascript",
+    "data-structure",
+    "algorithm"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XPoet/js-data-structure-and-algorithm/issues"
+  },
+  "homepage": "https://github.com/XPoet/js-data-structure-and-algorithm#readme",
+  "devDependencies": {
+    "vitepress": "^1.1.0"
+  }
+}
