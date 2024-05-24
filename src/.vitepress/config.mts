@@ -38,6 +38,7 @@ export default defineConfig({
     },
 
     nav: [
+      { text: '前言', link: '/foreword', activeMatch: '/foreword' },
       { text: '数据结构', link: '/data-structure/Array', activeMatch: '/data-structure/' },
       { text: '算法', link: '/algorithm/sort', activeMatch: '/algorithm/' }
     ],

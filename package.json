@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/XPoet/js-data-structure-and-algorithm#readme",
   "devDependencies": {
-    "vitepress": "^1.1.0"
+    "vitepress": "^1.2.2"
   }
 }
