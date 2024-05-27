@@ -68,10 +68,10 @@ export default defineConfig({
         text: '算法',
         collapsed: false,
         items: [
-          { text: '排序', link: '/algorithm/sort' },
-          { text: '搜索', link: '/algorithm/search' },
-          { text: '设计思想', link: '/algorithm/idea' },
-          { text: '经典算法', link: '/algorithm/classic' },
+          { text: '排序算法', link: '/algorithm/sort' },
+          { text: '搜索算法', link: '/algorithm/search' },
+          { text: '算法设计思想', link: '/algorithm/idea' },
+          { text: '经典算法真题', link: '/algorithm/classic' },
         ]
       },
     },
