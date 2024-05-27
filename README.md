@@ -4,9 +4,17 @@
 
 推荐大家按照目录结构的顺序来学习，由浅入深，循序渐进，轻松搞定数据结构和算法。
 
-## 预览文档
+## 在线预览
 
 **https://data-structure-and-algorithm.xpoet.cn**
+
+## 学习交流
+
+作者组建了学习氛围特别好的前端技术交流群，欢迎同学们一起来交流吐槽。由于群人数较多，需要添加作者才能邀请进群。
+
+> 扫码添加微信
+
+![image](https://xpoet.cn/images/fp/fp-slogan.webp)
 
 ## 数据结构
 
@@ -33,7 +41,7 @@
 
 ## 测试代码
 
-数据结构的测试代码存放在 [src / docs / public / data-structure](https://github.com/XPoet/js-data-structure-and-algorithm/tree/master/src/docs/public/data-structure) 目录下。
+数据结构的测试代码存放在 [src/docs/public/ data-structure](https://github.com/XPoet/js-data-structure-and-algorithm/tree/master/src/docs/public/data-structure) 目录。
 
 
 
